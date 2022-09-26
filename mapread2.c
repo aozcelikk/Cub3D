@@ -67,6 +67,7 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 	int		i;
 
 	maps = proc->map;
+	proc->g_map.map = maps + 6;
 	i = 0;
 	while (i < 6)
 	{
@@ -75,6 +76,7 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 				write(2, "OLDU\n", 5);
 		i++;
 	}
+	gmap_control_check(proc);
 	check_trans_img(maps, proc);
 	check_trans_frpg(maps[4], proc);
 	check_trans_crpg(maps[5], proc);

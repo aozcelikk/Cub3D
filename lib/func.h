@@ -40,10 +40,10 @@ typedef struct s_rpg
 
 typedef struct s_img
 {
-	char	**no;
-	char	**so;
-	char	**we;
-	char	**ea;
+	void	**no;
+	void	**so;
+	void	**we;
+	void	**ea;
 }		t_img;
 
 typedef struct s_proc
