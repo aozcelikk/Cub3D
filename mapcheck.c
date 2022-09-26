@@ -28,13 +28,23 @@ int	mapcheck(char *map)
 		return (0);
 }
 
-void	check_img(char *av)
+void	check_img(char *av, t_proc *proc)
 {
-	int	fd;
+	int		fd;
 
 	fd = open(av, O_RDONLY);
 	if (fd != -1)
+	{
+		if (ft_strcmp(av, "NO") || ft_strcmpc(av, 'N'))
+			proc->img.no = fd;
+		else if (ft_strcmp(av, "SO") || ft_strcmpc(av, 'S'))
+			proc->img.so = fd;
+		else if (ft_strcmp(av, "WE") || ft_strcmpc(av, 'W'))
+			proc->img.we = fd;
+		else if (ft_strcmp(av, "EA") || ft_strcmpc(av, 'E'))
+			proc->img.ea = fd;
 		close(fd);
+	}
 	else if (fd == -1)
 	{
 		printf("Error\nPicture is not\n");

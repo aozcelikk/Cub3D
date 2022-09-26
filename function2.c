@@ -49,3 +49,12 @@ int	ft_atoi(const char *str)
 	}
 	return (c * b);
 }
+
+int	ft_strcmpc(const char *s1, const char s2)
+{
+	if (s1[0] == s2)
+	{
+		return (1);
+	}
+	return (0);
+}
