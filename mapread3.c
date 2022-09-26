@@ -12,7 +12,7 @@
 
 #include "./lib/cub3D.h"
 
-void	gmap_control_check(t_proc *proc)
+void	gmap_control(t_proc *proc)
 {
 	char	**map;
 	int		i;
@@ -37,5 +37,36 @@ void	gmap_control_check(t_proc *proc)
 			}
 		}
 		i++;
+	}
+	gmap_op_check(proc);
+}
+
+void	gmap_op_check(t_proc *proc)
+{
+	char	**map;
+	int		i;
+	int		j;
+
+	map = proc->g_map.map;
+	i = 0;
+	j = 0;
+	while (map[i][j])
+	{
+		if (map[i][j] == ' ' || map[i][j] == '\t')
+			j++;
+		else if (map[i][j] == '1')
+		{
+			if (map[i][j--] == '1')
+				j--;
+			else if (map[i][j++] == '1')
+				j++;
+			i++;
+		}
+		printf("i = %d\tj%d\n", i, j);
+	}
+	while (*map)
+	{
+		printf("%s\n", *map);
+		map++;
 	}
 }

@@ -81,7 +81,7 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 		}
 	}
 	proc->g_map.map = maps + 6;
-	gmap_control_check(proc);
+	gmap_control(proc);
 	check_trans_img(maps, proc);
 	check_trans_frpg(maps[4], proc);
 	check_trans_crpg(maps[5], proc);
