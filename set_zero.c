@@ -31,11 +31,11 @@ static	void	gmap_zero(t_gmap *g_map)
 static	void	kbd_zero(t_kbd *kbd)
 {
 	kbd->a = 0;
-	kbd->d = 0;
-	kbd->l = 0;
-	kbd->r = 0;
-	kbd->s = 0;
-	kbd->w = 0;
+	kbd->d = 2;
+	kbd->l = 123;
+	kbd->r = 124;
+	kbd->s = 1;
+	kbd->w = 13;
 }
 
 static	void	rgp_zero(t_rpg *rpg)

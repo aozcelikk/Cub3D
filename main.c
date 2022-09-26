@@ -46,5 +46,6 @@ int	main(int ac, char **av)
 	}
 	else
 		printf("Error\nMissing argument or picture extension!!\n");
+	system("leaks cub3D");
 	return (0);
 }

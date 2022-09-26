@@ -12,11 +12,8 @@
 
 #include "./lib/cub3D.h"
 
-static int	check_map_in(char *map)
+static int	check_map_in(char *map, int ac)
 {
-	int	ac;
-
-	ac = 0;
 	if (ft_strcmp(map, "NO") || ft_strcmpc(map, 'N'))
 		ac += 1;
 	else if (ft_strcmp(map, "SO") || ft_strcmpc(map, 'S'))
@@ -29,7 +26,7 @@ static int	check_map_in(char *map)
 		ac += 1;
 	else if (ft_strcmpc(map, 'C'))
 		ac += 1;
-	if (ac == 6)
+	if (ac <= 6)
 		return (1);
 	return (0);
 }
@@ -65,17 +62,25 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 {
 	char	**maps;
 	int		i;
+	int		ac;
 
 	maps = proc->map;
-	proc->g_map.map = maps + 6;
 	i = 0;
+	ac = 0;
 	while (i < 6)
 	{
 		if (maps[i])
-			if (check_map_in(maps[i]))
-				write(2, "OLDU\n", 5);
-		i++;
+		{
+			if (check_map_in(maps[i], ac))
+				i++;
+		}
+		else
+		{
+			printf("Error\nWrong map stil");
+			exit (1);
+		}
 	}
+	proc->g_map.map = maps + 6;
 	gmap_control_check(proc);
 	check_trans_img(maps, proc);
 	check_trans_frpg(maps[4], proc);
