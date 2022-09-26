@@ -38,10 +38,10 @@ void	gmap_control(t_proc *proc)
 		}
 		i++;
 	}
-	gmap_op_check(proc);
+	gmap_oc_check(proc);
 }
 
-void	gmap_op_check(t_proc *proc)
+void	gmap_oc_check(t_proc *proc)
 {
 	char	**map;
 	int		i;

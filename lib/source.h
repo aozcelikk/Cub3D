@@ -45,6 +45,6 @@ void	map_trans_rpg_img_gmap(t_proc *proc);
 
 //mapread3.c
 void	gmap_control(t_proc *proc);	
-void	gmap_op_check(t_proc *proc);	
+void	gmap_oc_check(t_proc *proc);	
 
 #endif
