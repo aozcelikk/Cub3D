@@ -29,13 +29,17 @@ static int	check_alp(const char *str)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
-		if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
-			;
-		else
+		if (str[i] >= '0' && str[i] <= '9')
 			return (-1);
-		i++;
+		else if (str[i] == ' ')
+			i++;
+		else if ((str[i] >= 'a' && str[i] <= 'z') \
+			|| (str[i] >= 'A' && str[i] <= 'Z'))
+			return (-1);
 	}
 	return (1);
 }
@@ -49,8 +53,6 @@ int	ft_atoi(const char *str)
 	a = 0;
 	b = 1;
 	c = 0;
-	if (check_alp(str) == -1)
-		return (-1);
 	while (str[a] == '\t' || str[a] == ' ' || str[a] == '\n'
 		|| str[a] == '\v' || str[a] == '\f' || str[a] == '\r')
 		a++;
@@ -65,6 +67,8 @@ int	ft_atoi(const char *str)
 		c = (c * 10) + (str[a] - '0');
 			a++;
 	}
+	if (check_alp(str + a) == -1)
+		return (-1);
 	return (c * b);
 }
 

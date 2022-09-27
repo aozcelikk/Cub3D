@@ -2,6 +2,7 @@
 	"files.associations": {
 		"istream": "c",
 		"locale": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"sstream": "c"
 	}
 }
