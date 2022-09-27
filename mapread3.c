@@ -32,7 +32,7 @@ void	gmap_control(t_proc *proc)
 					j++;
 			else
 			{
-				printf("Error\nWrong chacter in map\n");
+				printf("Error\nWrong chacter in map\ni %d\tj %d\n", i + 1, j + 1);
 				exit(1);
 			}
 		}

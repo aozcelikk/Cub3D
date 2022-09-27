@@ -24,6 +24,22 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
+static int	check_alp(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
+			;
+		else
+			return (-1);
+		i++;
+	}
+	return (1);
+}
+
 int	ft_atoi(const char *str)
 {
 	int	a;
@@ -33,7 +49,7 @@ int	ft_atoi(const char *str)
 	a = 0;
 	b = 1;
 	c = 0;
-	if (str == NULL)
+	if (check_alp(str) == -1)
 		return (-1);
 	while (str[a] == '\t' || str[a] == ' ' || str[a] == '\n'
 		|| str[a] == '\v' || str[a] == '\f' || str[a] == '\r')
