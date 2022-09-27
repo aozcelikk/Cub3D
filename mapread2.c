@@ -64,7 +64,7 @@ static void	check_trans_crgb(char *Crgb, t_proc *proc)
 		;
 	else
 	{
-		printf("Error\nFrgb not true");
+		printf("Error\nCrgb not true");
 		exit(1);
 	}
 }
