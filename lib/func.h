@@ -33,9 +33,9 @@ typedef struct s_kbd
 
 typedef struct s_rpg
 {
-	int		rpg_r;
-	int		rpg_p;
-	int		rpg_g;
+	int		rgb_r;
+	int		rgb_b;
+	int		rgb_g;
 }		t_rpg;
 
 typedef struct s_img
@@ -57,8 +57,8 @@ typedef struct s_proc
 	int		new_cnt;
 	int		c_arg;
 	int		c_idx;
-	t_rpg	f_rpg;
-	t_rpg	c_rpg;
+	t_rpg	f_rgb;
+	t_rpg	c_rgb;
 	t_kbd	kbd;
 	t_img	img;
 	t_gmap	g_map;

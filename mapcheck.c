@@ -49,7 +49,7 @@ void	check_img(char *av, t_proc *proc)
 	}
 	else if (fd == -1)
 	{
-		printf("Error\nPicture is not\n");
+		printf("Error\nPicture is not true\n");
 		close(fd);
 		exit(1);
 	}

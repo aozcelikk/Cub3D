@@ -21,15 +21,15 @@ void	gmap_control(t_proc *proc)
 	map = proc->g_map.map;
 	i = 0;
 	j = 0;
-	while (map[i][j])
+	while (i < proc->row_cnt - 6)
 	{
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == '1' || map[i][j] == '0' || map[i][j] == 'N' \
-				|| map[i][j] == 'S' || map[i][j] == 'W' || map[i][j] == 'E' \
-				|| map[i][j] == ' ' || map[i][j] == '\t' )
-				j++;
+			if (map[i][j] == '1' || map[i][j] == '0' || map[i][j] == 'N' || \
+				map[i][j] == 'S' || map[i][j] == 'W' || map[i][j] == 'E' || \
+				map[i][j] == ' ')
+					j++;
 			else
 			{
 				printf("Error\nWrong chacter in map\n");
@@ -38,7 +38,7 @@ void	gmap_control(t_proc *proc)
 		}
 		i++;
 	}
-	gmap_oc_check(proc);
+	//gmap_oc_check(proc);
 }
 
 void	gmap_oc_check(t_proc *proc)
@@ -52,8 +52,12 @@ void	gmap_oc_check(t_proc *proc)
 	j = 0;
 	while (map[i][j])
 	{
-		if (map[i][j] == ' ' || map[i][j] == '\t')
+		if (map[i][j] == ' ')
 			j++;
+		else if (map[i][j] == '1' && map[i++][j] == '1')
+		{
+			i++;
+		}
 		else if (map[i][j] == '1')
 		{
 			if (map[i][j--] == '1')
@@ -62,8 +66,11 @@ void	gmap_oc_check(t_proc *proc)
 				j++;
 			i++;
 		}
+		else
+			i--;
 		printf("i = %d\tj%d\n", i, j);
 	}
+	printf("%c\n", map[5][0]);
 	while (*map)
 	{
 		printf("%s\n", *map);

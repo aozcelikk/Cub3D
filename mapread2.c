@@ -31,16 +31,42 @@ static int	check_map_in(char *map, int ac)
 	return (0);
 }
 
-static void	check_trans_frpg(char *Frpg, t_proc *proc)
+static void	check_trans_frgb(char *Frgb, t_proc *proc)
 {
-	(void)Frpg;
-	(void)proc;
+	char	**rgbno;
+
+	rgbno = ft_split(Frgb + 1, ',', proc);
+	proc->f_rgb.rgb_r = ft_atoi(rgbno[0]);
+	proc->f_rgb.rgb_g = ft_atoi(rgbno[1]);
+	proc->f_rgb.rgb_b = ft_atoi(rgbno[2]);
+	if ((proc->f_rgb.rgb_r >= 0 && proc->f_rgb.rgb_r <= 255) \
+		&& (proc->f_rgb.rgb_g >= 0 && proc->f_rgb.rgb_g <= 255) \
+		&& (proc->f_rgb.rgb_b >= 0 && proc->f_rgb.rgb_b <= 255))
+		;
+	else
+	{
+		printf("Error\nFrgb not true");
+		exit(1);
+	}
 }
 
-static void	check_trans_crpg(char *Crpg, t_proc *proc)
+static void	check_trans_crgb(char *Crgb, t_proc *proc)
 {
-	(void)Crpg;
-	(void)proc;
+	char	**rgbno;
+
+	rgbno = ft_split(Crgb + 1, ',', proc);
+	proc->c_rgb.rgb_r = ft_atoi(rgbno[0]);
+	proc->c_rgb.rgb_g = ft_atoi(rgbno[1]);
+	proc->c_rgb.rgb_b = ft_atoi(rgbno[2]);
+	if ((proc->c_rgb.rgb_r >= 0 && proc->c_rgb.rgb_r <= 255) \
+		&& (proc->c_rgb.rgb_g >= 0 && proc->c_rgb.rgb_g <= 255) \
+		&& (proc->c_rgb.rgb_b >= 0 && proc->c_rgb.rgb_b <= 255))
+		;
+	else
+	{
+		printf("Error\nFrgb not true");
+		exit(1);
+	}
 }
 
 static void	check_trans_img(char **map, t_proc *proc)
@@ -83,6 +109,6 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 	proc->g_map.map = maps + 6;
 	gmap_control(proc);
 	check_trans_img(maps, proc);
-	check_trans_frpg(maps[4], proc);
-	check_trans_crpg(maps[5], proc);
+	check_trans_frgb(maps[4], proc);
+	check_trans_crgb(maps[5], proc);
 }

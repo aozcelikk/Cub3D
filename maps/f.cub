@@ -3,7 +3,7 @@ SO ./xpm/NO.xpm
 WE ./xpm/NO.xpm
 EA ./xpm/NO.xpm
 
-F 220,100,0 // Zemin rengi
+F 220,100,255 // Zemin rengi
 C 225,30,0  // İç kaplama rengi
 
         1111111111111111111111111
