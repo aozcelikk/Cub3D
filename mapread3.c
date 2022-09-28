@@ -38,7 +38,30 @@ void	gmap_control(t_proc *proc)
 		}
 		i++;
 	}
-	//gmap_oc_check(proc);
+	gmap_oc_check(proc);
+}
+
+static void	map_tab_bot_control(char *map1, char *map2, int j)
+{
+	int	i;
+
+	i = 0;
+	while (i <= j)
+	{
+		if (map1[i] == '1')
+		{
+			if (map2[i + 1] == '1')
+				i++;
+			else
+			{
+				printf("Error\nMap is open\n");
+				exit (1);
+			}
+			printf("%c\n", map2[i + 1]);
+		}
+		else
+			i++;
+	}
 }
 
 void	gmap_oc_check(t_proc *proc)
@@ -46,34 +69,25 @@ void	gmap_oc_check(t_proc *proc)
 	char	**map;
 	int		i;
 	int		j;
+	int		k;
 
 	map = proc->g_map.map;
 	i = 0;
 	j = 0;
-	while (map[i][j])
+	k = 0;
+	while (map[i][j] && map[i + 1][j])
 	{
-		if (map[i][j] == ' ')
+		j = 0;
+		k = 0;
+		while (map[i][j])
 			j++;
-		else if (map[i][j] == '1' && map[i++][j] == '1')
-		{
-			i++;
-		}
-		else if (map[i][j] == '1')
-		{
-			if (map[i][j--] == '1')
-				j--;
-			else if (map[i][j++] == '1')
-				j++;
-			i++;
-		}
+		while (map[i + 1][k])
+			k++;
+		if (j > k)
+			map_tab_bot_control(map[i + 1], map[i], j);
+		else if (k > j)
+			map_tab_bot_control(map[i], map[i + 1], k);
 		else
-			i--;
-		printf("i = %d\tj%d\n", i, j);
-	}
-	printf("%c\n", map[5][0]);
-	while (*map)
-	{
-		printf("%s\n", *map);
-		map++;
+			map_tab_bot_control(map[i], map[i + 1], k);
 	}
 }
