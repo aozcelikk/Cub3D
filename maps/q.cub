@@ -3,7 +3,7 @@ SO ./xpm/NO.xpm
 WE ./xpm/NO.xpm
 EA ./xpm/NO.xpm
 
-F 220,100,         300     
+F 220,100,200     
 C 225,1,0
 
         11111111
