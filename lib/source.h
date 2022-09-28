@@ -27,7 +27,7 @@ char	**ft_split(char const *s, char c, t_proc *proc);
 
 //function2.c
 int		ft_strcmp(const char *s1, const char *s2);
-int		ft_atoi(const char *str);
+int		ft_atoi(char *str);
 int		ft_strcmpc(const char *s1, const char s2);
 
 //mapread.c

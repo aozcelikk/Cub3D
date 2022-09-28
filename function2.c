@@ -24,7 +24,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-static int	check_alp(const char *str)
+static int	check_alp(char *str)
 {
 	int	i;
 
@@ -44,24 +44,18 @@ static int	check_alp(const char *str)
 	return (1);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int	a;
-	int	b;
 	int	c;
 
 	a = 0;
-	b = 1;
 	c = 0;
 	while (str[a] == '\t' || str[a] == ' ' || str[a] == '\n'
 		|| str[a] == '\v' || str[a] == '\f' || str[a] == '\r')
 		a++;
-	if (str[a] == '-' || str[a] == '+')
-	{
-		if (str[a] == '-')
-			b = -1;
-		a++;
-	}
+	if (str[a] == '\0')
+		return (-1);
 	while (str[a] >= '0' && str[a] <= '9')
 	{
 		c = (c * 10) + (str[a] - '0');
@@ -69,7 +63,7 @@ int	ft_atoi(const char *str)
 	}
 	if (check_alp(str + a) == -1)
 		return (-1);
-	return (c * b);
+	return (c);
 }
 
 int	ft_strcmpc(const char *s1, const char s2)

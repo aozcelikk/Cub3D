@@ -26,6 +26,8 @@ static int	check_map_in(char *map, int ac)
 		ac += 1;
 	else if (ft_strcmpc(map, 'C'))
 		ac += 1;
+	else
+		return (-1);
 	if (ac <= 6)
 		return (1);
 	return (0);
@@ -34,8 +36,17 @@ static int	check_map_in(char *map, int ac)
 static void	check_trans_frgb(char *Frgb, t_proc *proc)
 {
 	char	**rgbno;
+	int		i;
 
+	i = 0;
 	rgbno = ft_split(Frgb + 1, ',', proc);
+	while (rgbno[i])
+		i++;
+	if (i != 3)
+	{
+		printf("Error\nFrgb arguments is fail");
+		exit (1);
+	}
 	proc->f_rgb.rgb_r = ft_atoi(rgbno[0]);
 	proc->f_rgb.rgb_g = ft_atoi(rgbno[1]);
 	proc->f_rgb.rgb_b = ft_atoi(rgbno[2]);
@@ -53,8 +64,17 @@ static void	check_trans_frgb(char *Frgb, t_proc *proc)
 static void	check_trans_crgb(char *Crgb, t_proc *proc)
 {
 	char	**rgbno;
+	int		i;
 
+	i = 0;
 	rgbno = ft_split(Crgb + 1, ',', proc);
+	while (rgbno[i])
+		i++;
+	if (i != 3)
+	{
+		printf("Error\nCrgb arguments is fail");
+		exit (1);
+	}
 	proc->c_rgb.rgb_r = ft_atoi(rgbno[0]);
 	proc->c_rgb.rgb_g = ft_atoi(rgbno[1]);
 	proc->c_rgb.rgb_b = ft_atoi(rgbno[2]);
@@ -97,13 +117,13 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 	{
 		if (maps[i])
 		{
-			if (check_map_in(maps[i], ac))
+			if (check_map_in(maps[i], ac) == 1)
 				i++;
-		}
-		else
-		{
-			printf("Error\nWrong map stil");
-			exit (1);
+			else
+			{
+				printf("Error\nWrong map stil");
+				exit (1);
+			}
 		}
 	}
 	proc->g_map.map = maps + 6;

@@ -8,7 +8,7 @@ SOURCE			=	main.c mapcheck.c function.c function2.c mapread.c mapread2.c mapread
 					
 					
 
-MLXM	=	 ./mlx/libmlx.a $(LMLX_M)
+MLXM	=	 $(C_MLXD) $(LMLX_M)
 
 OBJECT			=	$(SOURCE:.c=.o)
 
@@ -18,12 +18,13 @@ C_MLXD			=	./mlx/libmlx.a
 all: 				$(NAME)
 
 $(NAME):			$(OBJECT)
-					@echo "$(YELLOW)Minilibx compiling...$(END)"
+					@echo "$(YELLOW)Compiling...$(END)"
 					@$(MAKE) -C $(C_MLXC)
 					@$(CC) $(CFLAGS) $(OBJECT) $(MLXM) -o ${NAME}
 					@echo "$(GREEN)===>Done<===$(END)"	
 
 %.o:		%.c
+					@echo "$(YELLOW)Compiling...$(END)"
 					$(CC) -c $(CFLAGS) -o $@ $<
 					@printf "$(GREEN)"
 					
