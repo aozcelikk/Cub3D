@@ -46,7 +46,7 @@ static void	map_tab_bot_control(char *map1, char *map2, int j)
 	int	i;
 
 	i = 0;
-	while (i <= j)
+	while (i < j)
 	{
 		if (map1[i] == '1')
 		{
@@ -64,30 +64,15 @@ static void	map_tab_bot_control(char *map1, char *map2, int j)
 	}
 }
 
+
 void	gmap_oc_check(t_proc *proc)
 {
 	char	**map;
 	int		i;
 	int		j;
-	int		k;
 
-	map = proc->g_map.map;
-	i = 0;
-	j = 0;
-	k = 0;
-	while (map[i][j] && map[i + 1][j])
+	while (map[i][j])
 	{
-		j = 0;
-		k = 0;
-		while (map[i][j])
-			j++;
-		while (map[i + 1][k])
-			k++;
-		if (j > k)
-			map_tab_bot_control(map[i + 1], map[i], j);
-		else if (k > j)
-			map_tab_bot_control(map[i], map[i + 1], k);
-		else
-			map_tab_bot_control(map[i], map[i + 1], k);
+
 	}
 }

@@ -74,3 +74,12 @@ int	ft_strcmpc(const char *s1, const char s2)
 	}
 	return (0);
 }
+
+char	*ft_strchr(const char *str, int c)
+{
+	while (str && *str && *str != c)
+		str++;
+	if (c && !*str)
+		return (NULL);
+	return ((char *)str);
+}

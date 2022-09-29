@@ -3,6 +3,7 @@
 		"istream": "c",
 		"locale": "c",
 		"chrono": "c",
-		"sstream": "c"
+		"sstream": "c",
+		"string.h": "c"
 	}
 }
