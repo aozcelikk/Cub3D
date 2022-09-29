@@ -31,6 +31,8 @@ int		ft_atoi(char *str);
 int		ft_strcmpc(const char *s1, const char s2);
 char	*ft_strchr(const char *str, int c);
 
+//function2.c
+int		ft_strlen(char *str);
 //mapread.c
 
 void	map_read(t_proc *proc, char *av);
@@ -46,6 +48,6 @@ void	map_trans_rpg_img_gmap(t_proc *proc);
 
 //mapread3.c
 void	gmap_control(t_proc *proc);	
-void	gmap_oc_check(t_proc *proc);	
+void	gmap_wall_oc_check(t_proc *proc);	
 
 #endif

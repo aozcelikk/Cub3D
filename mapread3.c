@@ -38,41 +38,44 @@ void	gmap_control(t_proc *proc)
 		}
 		i++;
 	}
-	gmap_oc_check(proc);
+	gmap_wall_oc_check(proc);
 }
 
-static void	map_tab_bot_control(char *map1, char *map2, int j)
+static int	map_wall_check(char **map, char c)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (i < j)
+	i = 1;
+	while (map[i] && map[i + 1])
 	{
-		if (map1[i] == '1')
+		j = 0;
+		while (map[i][j])
 		{
-			if (map2[i + 1] == '1')
-				i++;
-			else
-			{
-				printf("Error\nMap is open\n");
-				exit (1);
-			}
-			printf("%c\n", map2[i + 1]);
+			if (map[i][j] == c && ((!j || map[i][j - 1] == ' ' || \
+			!map[i][j + 1] || map[i][j] == ' ') || \
+			(j + 1 > ft_strlen(map[i - 1]) || map[i - 1][j] == ' ') || \
+			(j + 1 > ft_strlen(map[i + 1]) || map[i + 1][j] == ' ')))
+				return (-1);
+			j++;
 		}
-		else
-			i++;
+		i++;
 	}
+	if (ft_strchr(map[i], c) || ft_strchr(map[0], c))
+		return (-1);
+	return (0);
 }
 
-
-void	gmap_oc_check(t_proc *proc)
+void	gmap_wall_oc_check(t_proc *proc)
 {
 	char	**map;
-	int		i;
-	int		j;
 
-	while (map[i][j])
+	map = proc->g_map.map;
+	if (map_wall_check(map, '0') || map_wall_check(map, 'N') || \
+		map_wall_check(map, 'S') || map_wall_check(map, 'W') || \
+		map_wall_check(map, 'E'))
 	{
-
+		printf("Error\nMap is not close\n");
+		exit (1);
 	}
 }
