@@ -15,7 +15,7 @@
 static int	start_proc(t_proc *proc)
 {
 	proc->mlx = mlx_init();
-	proc->mlx_win = mlx_new_window(proc->mlx, 1920, 1080, "Cub3D");
+	proc->mlx_win = mlx_new_window(proc->mlx, WIDTH, HEIGHT, "Cub3D");
 	mlx_loop(proc->mlx);
 	return (0);
 }

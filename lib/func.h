@@ -46,6 +46,16 @@ typedef struct s_img
 	void	**ea;
 }		t_img;
 
+typedef struct s_plyr
+{
+	double	loc_x;
+	double	loc_y;
+	double	dir_x;
+	double	dir_y;
+	double	cam_x;
+	double	cam_y;
+}		t_plyr;
+
 typedef struct s_proc
 {
 	void	*mlx;
@@ -62,6 +72,7 @@ typedef struct s_proc
 	t_kbd	kbd;
 	t_img	img;
 	t_gmap	g_map;
+	t_plyr	g_plyr;
 }		t_proc;
 
 #endif

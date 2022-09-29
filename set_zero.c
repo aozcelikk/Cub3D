@@ -52,5 +52,6 @@ int	set_zero(t_proc *proc)
 	kbd_zero(&proc->kbd);
 	gmap_zero(&proc->g_map);
 	proc_zero(proc);
+	set_zero2(proc);
 	return (1);
 }

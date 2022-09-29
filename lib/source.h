@@ -13,6 +13,10 @@
 #ifndef SOURCE_H
 # define SOURCE_H
 
+//sort code
+# define WIDTH 1920
+# define HEIGHT 1080
+
 //mapcheck.c
 
 int		mapcheck(char *map);
@@ -43,11 +47,14 @@ int		map_len(char *av);
 //set_zero.c
 int		set_zero(t_proc *proc);
 
+//set_zero2.c
+void	set_zero2(t_proc *proc);
+
 //mapread2.c
 void	map_trans_rpg_img_gmap(t_proc *proc);
 
 //mapread3.c
 void	gmap_control(t_proc *proc);	
-void	gmap_wall_oc_check(t_proc *proc);	
+void	gmap_wall_oc_check(t_proc *proc);
 
 #endif
