@@ -31,20 +31,18 @@ int	mapcheck(char *map)
 void	check_img(char *av, t_proc *proc)
 {
 	int		fd;
-	int		x;
-	int		y;
 
 	fd = open(av, O_RDONLY);
 	if (fd != -1)
 	{
 		if (ft_strcmp(av, "NO") || ft_strcmpc(av, 'N'))
-			proc->img.no = mlx_xpm_file_to_image(proc->mlx, av, &x, &y);
+			proc->img.no = av;
 		else if (ft_strcmp(av, "SO") || ft_strcmpc(av, 'S'))
-			proc->img.so = mlx_xpm_file_to_image(proc->mlx, av, &x, &y);
+			proc->img.so = av;
 		else if (ft_strcmp(av, "WE") || ft_strcmpc(av, 'W'))
-			proc->img.we = mlx_xpm_file_to_image(proc->mlx, av, &x, &y);
+			proc->img.we = av;
 		else if (ft_strcmp(av, "EA") || ft_strcmpc(av, 'E'))
-			proc->img.ea = mlx_xpm_file_to_image(proc->mlx, av, &x, &y);
+			proc->img.ea = av;
 		close(fd);
 	}
 	else if (fd == -1)

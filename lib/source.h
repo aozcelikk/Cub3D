@@ -17,7 +17,7 @@
 # define WIDTH 1920
 # define HEIGHT 1080
 # define IMG_WIDTH 600
-# define IMG_HEIGHT 400
+# define IMG_HEIGHT 300
 
 //mapcheck.c
 

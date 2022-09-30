@@ -12,7 +12,7 @@
 
 #include "./lib/cub3D.h"
 
-void tavan_renk(t_proc *s_data)
+void	tavan_renk(t_proc *s_data)
 {
 	int	x;
 	int	y;
@@ -23,23 +23,23 @@ void tavan_renk(t_proc *s_data)
 		y = 0;
 		while (y < HEIGHT / 2)
 		{
-			s_data->screen_img_data[y * WIDTH + x] = 0255255;
+			s_data->screen_img_data[y * WIDTH + x] = 25511;
 			y++;
 		}
 		x++;
 	}
 }
 
-void zemin_renk(t_proc *s_data)
+void	zemin_renk(t_proc *s_data)
 {
 	int	x;
-	int	y; 
+	int	y;
 
 	y = HEIGHT / 2;
 	x = 0;
 	while (x < WIDTH && y < HEIGHT)
 	{
-		s_data->screen_img_data[y * WIDTH + x] = 192192192;
+		s_data->screen_img_data[y * WIDTH + x] = 255111111;
 		x++;
 		if (x == WIDTH)
 		{
@@ -57,20 +57,18 @@ int	print_map(t_proc *s_data)
 	x = 0;
 	while (x < WIDTH)
 	{
+		double sideDistX;
+		double sideDistY;
+		int stepX;
+		int stepY;
 		double cameraX = 2 * x / (double)WIDTH -1;
-
 		double rayDirX = s_data->g_plyr.dir_x + s_data->g_plyr.cam_x * cameraX;
 		double rayDirY = s_data->g_plyr.dir_y + s_data->g_plyr.cam_y * cameraX;
 		int mapX = (int)s_data->g_plyr.loc_x;
 		int mapY = (int)s_data->g_plyr.loc_y;
-		double sideDistX;
-		double sideDistY;
 		double deltaDistX = fabs(1 / rayDirX);
 		double deltaDistY = fabs(1 / rayDirY);
 		double perpWallDist;
-		int stepX;
-		int stepY;
-		
 		int hit = 0;
 		int side;
 
@@ -109,7 +107,7 @@ int	print_map(t_proc *s_data)
 				mapY += stepY;
 				side = 1;
 			}
-			if (s_data->g_map.map[mapX][mapY] > 0)
+			if (s_data->g_map.map[mapX][mapY] == '1')
 				hit = 1;
 		}
 		if (side == 0)
@@ -119,10 +117,10 @@ int	print_map(t_proc *s_data)
 
 		int lineHeight = (int)(HEIGHT / perpWallDist);
 		int drawStart = -lineHeight / 2 + HEIGHT / 2;
-		if(drawStart < 0)
+		if (drawStart < 0)
 			drawStart = 0;
 		int drawEnd = lineHeight / 2 + HEIGHT / 2;
-		if(drawEnd >= HEIGHT)
+		if (drawEnd >= HEIGHT)
 			drawEnd = HEIGHT - 1;
 		//int texNum = (int)s_data->g_map.map[mapX][mapY];
 
