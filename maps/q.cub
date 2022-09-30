@@ -1,7 +1,7 @@
-NO ./xpm/NO.xpm
-SO ./xpm/NO.xpm
-WE ./xpm/NO.xpm
-EA ./xpm/NO.xpm
+NO ./xpm/N.xpm
+SO ./xpm/S.xpm
+WE ./xpm/W.xpm
+EA ./xpm/E.xpm
 
 F 220,100,220   
 C 225,1,1                

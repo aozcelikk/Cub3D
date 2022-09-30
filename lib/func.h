@@ -40,10 +40,16 @@ typedef struct s_rpg
 
 typedef struct s_img
 {
-	void	**no;
-	void	**so;
-	void	**we;
-	void	**ea;
+	void	*no;
+	void	*so;
+	void	*we;
+	void	*ea;
+	int		img_x;
+	int		img_y;
+	int		*img_data_clr;
+	int		per_pxl;
+	int		size_line;
+	int		endian;
 }		t_img;
 
 typedef struct s_plyr
@@ -54,6 +60,8 @@ typedef struct s_plyr
 	double	dir_y;
 	double	cam_x;
 	double	cam_y;
+	double	movespd;
+	double	rotspd;
 }		t_plyr;
 
 typedef struct s_proc
@@ -62,6 +70,8 @@ typedef struct s_proc
 	void	*mlx_win;
 	void	**img_path;
 	char	**map;
+	int		*screen_img_data;
+	void	*screen_img;
 	int		row_cnt;
 	int		row_len;
 	int		new_cnt;

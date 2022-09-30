@@ -20,6 +20,8 @@ static void	set_plyr_zero(t_plyr *player)
 	player->dir_y = 0;
 	player->loc_x = 0;
 	player->loc_y = 0;
+	player->movespd = 0;
+	player->rotspd = 0;
 }
 
 void	set_zero2(t_proc *proc)
