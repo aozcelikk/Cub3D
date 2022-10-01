@@ -37,8 +37,9 @@ int		ft_atoi(char *str);
 int		ft_strcmpc(const char *s1, const char s2);
 char	*ft_strchr(const char *str, int c);
 
-//function2.c
-int		ft_strlen(char *str);
+//function3.c
+int		ft_strlen(const char *str);
+
 //mapread.c
 
 void	map_read(t_proc *proc, char *av);

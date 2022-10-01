@@ -89,35 +89,35 @@ static void	check_trans_crgb(char *Crgb, t_proc *proc)
 	}
 }
 
-static void	check_trans_img(char **map, t_proc *proc)
+static void	check_trans_img(char *map, t_proc *proc)
 {
-		if (ft_strcmp(*map, "NO") || ft_strcmp(*map, "SO") \
-			|| ft_strcmp(*map, "WE") || ft_strcmp(*map, "EA"))
-			check_img(*map + 3, proc);
-		else if ((map[0][1] == ' ' ) && (*map[0] == 'N' || *map[0] == 'S' \
-			|| *map[0] == 'W' || *map[0] == 'E'))
-			check_img(*map + 2, proc);
-		else
-		{
-			printf("Error\nMap Arguman is wrong\n");
-			exit(1);
-		}
+	if (ft_strcmp(map, "NO") || ft_strcmp(map, "SO") \
+		|| ft_strcmp(map, "WE") || ft_strcmp(map, "EA"))
+		check_img(map + 3, proc);
+	else if ((map[1] == ' ' ) && (map[0] == 'N' || map[0] == 'S' \
+		|| map[0] == 'W' || map[0] == 'E'))
+		check_img(map + 2, proc);
+	else
+	{
+		printf("Error\nMap Arguman is wrong\n");
+		exit(1);
+	}
 }
 
 void	map_trans_rpg_img_gmap(t_proc *proc)
 {
-	char	**maps;
 	int		i;
 	int		ac;
 
-	maps = proc->map;
 	i = 0;
 	ac = 0;
 	while (i < 6)
 	{
-		if (maps[i])
+		if (i < 4)
+			check_trans_img(proc->map[i], proc);
+		if (proc->map[i])
 		{
-			if (check_map_in(maps[i], ac) == 1)
+			if (check_map_in(proc->map[i], ac) == 1)
 				i++;
 			else
 			{
@@ -125,11 +125,9 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 				exit (1);
 			}
 		}
-		if (i < 4)
-			check_trans_img(maps, proc);
 	}
-	proc->g_map.map = maps + 6;
+	proc->g_map.map = proc->map + 6;
 	gmap_control(proc);
-	check_trans_frgb(maps[4], proc);
-	check_trans_crgb(maps[5], proc);
+	check_trans_frgb(proc->map[4], proc);
+	check_trans_crgb(proc->map[5], proc);
 }

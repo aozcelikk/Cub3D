@@ -23,7 +23,7 @@ void	tavan_renk(t_proc *s_data)
 		y = 0;
 		while (y < HEIGHT / 2)
 		{
-			s_data->screen_img_data[y * WIDTH + x] = 25511;
+			s_data->screen_img_data[y * WIDTH + x] = 255111111;
 			y++;
 		}
 		x++;
@@ -39,7 +39,7 @@ void	zemin_renk(t_proc *s_data)
 	x = 0;
 	while (x < WIDTH && y < HEIGHT)
 	{
-		s_data->screen_img_data[y * WIDTH + x] = 255111111;
+		s_data->screen_img_data[y * WIDTH + x] = 25525341;
 		x++;
 		if (x == WIDTH)
 		{
@@ -107,7 +107,7 @@ int	print_map(t_proc *s_data)
 				mapY += stepY;
 				side = 1;
 			}
-			if (s_data->g_map.map[mapX][mapY] == '1')
+			if (s_data->g_map.map[mapX][mapY] > '0')
 				hit = 1;
 		}
 		if (side == 0)
@@ -122,7 +122,6 @@ int	print_map(t_proc *s_data)
 		int drawEnd = lineHeight / 2 + HEIGHT / 2;
 		if (drawEnd >= HEIGHT)
 			drawEnd = HEIGHT - 1;
-		//int texNum = (int)s_data->g_map.map[mapX][mapY];
 
 		double wallX;
 		if (side == 0)
