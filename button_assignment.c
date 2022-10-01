@@ -18,7 +18,7 @@ int	ft_exit(void *tmp)
 	exit(0);
 }
 
-void	button_up(int key, t_proc *proc)
+int	button_up(int key, t_proc *proc)
 {
 	if (key == 13)
 		proc->kbd.w = 1;
@@ -37,7 +37,7 @@ void	button_up(int key, t_proc *proc)
 	return (0);
 }
 
-void	button_down(int key, t_proc *proc)
+int	button_down(int key, t_proc *proc)
 {
 	if (key == 13)
 		proc->kbd.w = 0;

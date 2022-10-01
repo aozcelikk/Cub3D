@@ -72,8 +72,8 @@ void	char_lock_rot(t_proc *proc);
 
 //button_assignment.c
 int		ft_exit(void *tmp);
-void	button_up(int key, t_proc *proc);
-void	button_down(int key, t_proc *proc);
+int		button_up(int key, t_proc *proc);
+int		button_down(int key, t_proc *proc);
 void	button_assignment(t_proc *proc);
 
 #endif
