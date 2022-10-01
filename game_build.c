@@ -57,6 +57,12 @@ int	print_map(t_proc *s_data)
 	x = 0;
 	while (x < WIDTH)
 	{
+		s_data->g_plyr.loc_x = 3;
+		s_data->g_plyr.loc_y = 17;
+		s_data->g_plyr.dir_x = 1;
+		s_data->g_plyr.dir_y = 1;
+		s_data->g_plyr.cam_x = 6;
+		s_data->g_plyr.cam_y = 3;
 		double sideDistX;
 		double sideDistY;
 		int stepX;
@@ -92,7 +98,6 @@ int	print_map(t_proc *s_data)
 			stepY = 1;
 			sideDistY = (mapY + 1.0 - s_data->g_plyr.loc_y) * deltaDistY;
 		}
-
 		while (hit == 0)
 		{
 			if (sideDistX < sideDistY)

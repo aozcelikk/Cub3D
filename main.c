@@ -35,7 +35,7 @@ static int	start_proc(t_proc *proc)
 
 
 
-
+	button_assignment(proc);
 	mlx_loop(proc->mlx);
 	return (0);
 }
