@@ -22,7 +22,8 @@
 //mapcheck.c
 
 int		mapcheck(char *map);
-void	check_img(char *av, t_proc *proc);
+void	check_img_one(char *av, t_proc *proc);
+void	check_img_two(char *av, t_proc *proc);
 void	map_character_check(t_gmap *g_map);
 
 //function.c

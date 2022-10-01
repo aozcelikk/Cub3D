@@ -93,10 +93,10 @@ static void	check_trans_img(char *map, t_proc *proc)
 {
 	if (ft_strcmp(map, "NO") || ft_strcmp(map, "SO") \
 		|| ft_strcmp(map, "WE") || ft_strcmp(map, "EA"))
-		check_img(map + 3, proc);
+		check_img_two(map, proc);
 	else if ((map[1] == ' ' ) && (map[0] == 'N' || map[0] == 'S' \
 		|| map[0] == 'W' || map[0] == 'E'))
-		check_img(map + 2, proc);
+		check_img_one(map, proc);
 	else
 	{
 		printf("Error\nMap Arguman is wrong\n");

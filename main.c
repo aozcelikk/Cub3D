@@ -23,7 +23,7 @@ static int	start_proc(t_proc *proc)
 	proc->mlx_win = mlx_new_window(proc->mlx, WIDTH, HEIGHT, "Cub3D");
 
 
-		void *img_ptr = mlx_xpm_file_to_image(proc->mlx, "./xpm/N.xpm" , &proc->img.img_x, &proc->img.img_y);
+		void *img_ptr = mlx_xpm_file_to_image(proc->mlx, proc->img.no , &proc->img.img_x, &proc->img.img_y);
 		proc->img.img_data_clr = (int *)mlx_get_data_addr(img_ptr, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
 
 		proc->screen_img = mlx_new_image(proc->mlx, WIDTH, HEIGHT);
