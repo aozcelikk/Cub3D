@@ -58,11 +58,11 @@ int	print_map(t_proc *s_data)
 	while (x < WIDTH)
 	{
 		s_data->g_plyr.loc_x = 3;
-		s_data->g_plyr.loc_y = 17;
-		s_data->g_plyr.dir_x = 1;
-		s_data->g_plyr.dir_y = 1;
-		s_data->g_plyr.cam_x = 6;
-		s_data->g_plyr.cam_y = 3;
+		s_data->g_plyr.loc_y = 13;
+		s_data->g_plyr.dir_x = 0.66;
+		s_data->g_plyr.dir_y = 0.66;
+		s_data->g_plyr.cam_x = 1;
+		s_data->g_plyr.cam_y = 0;
 		double sideDistX;
 		double sideDistY;
 		int stepX;
