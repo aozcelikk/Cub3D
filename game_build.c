@@ -116,7 +116,7 @@ int	print_map(t_proc *s_data)
 				mapY += stepY;
 				side = 1;
 			}
-			if (s_data->g_map.map[mapX][mapY] > '0')
+			if (s_data->g_map.mapi[mapX][mapY] > 0)
 				hit = 1;
 		}
 		if (side == 0)

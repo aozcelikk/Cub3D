@@ -16,6 +16,7 @@
 typedef struct s_gmap
 {
 	char	**map;
+	int		**mapi;
 	int		c_arg;
 	int		c_idx;
 	int		char_cnt;

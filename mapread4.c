@@ -31,3 +31,69 @@ int	crgbtrans(char **rgbno)
 	rgbnu = ft_atoi(crgb);
 	return (rgbnu);
 }
+
+static int	g_maptointmap(t_proc *proc)
+{
+	int	i;
+	int	j;
+	int	idx;
+	int	tab;
+
+	i = 0;
+	j = 0;
+	idx = 0;
+	tab = 0;
+	while (proc->g_map.map[i])
+	{
+		if (j > idx)
+			idx = j;
+		if (i > j)
+			idx = i;
+		j = 0;
+		while (proc->g_map.map[i][j])
+		{
+			if (proc->g_map.map[i][j] == '\t')
+				tab += 8;
+			j++;
+		}
+		i++;
+	}
+	return (idx + tab);
+}
+
+void	g_mapexportintmap(t_proc *proc)
+{
+	int		idx;
+	int		i;
+	int		j;
+	int		**imap;
+	char	**cmap;
+
+	idx = g_maptointmap(proc);
+	cmap = proc->g_map.map;
+	i = 0;
+	j = 0;
+	while (cmap[i][j])
+	{
+		j = 0;
+		while (cmap[i][j])
+		{
+			if (cmap[i][j] == '1' || cmap[i][j] != '0')
+				idx = ft_atoic(cmap[i][j]);
+			else if (cmap[i][j] == 'N' || cmap[i][j] == 'S' \
+					|| cmap[i][j] == 'W' || cmap[i][j] == 'E')
+				;
+			else if (cmap[i][j] == ' ')
+				idx = 0;
+			imap[i][j] = idx;
+			j++;
+		}
+		i++;
+	}
+	while (imap[idx][idx])
+	{
+		
+	}
+
+	proc->g_map.mapi = imap;
+}

@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//gelen haritanın x ve y sını zunlugu bul hangısı buyukse o kadar bır ınt map ac (tam kare olacak sekılde) 
+//içini doldururken tab gorursen 8 atla
+
 #include "./lib/cub3D.h"
 
 static int	start_proc(t_proc *proc)
@@ -18,7 +21,7 @@ static int	start_proc(t_proc *proc)
 	proc->mlx_win = mlx_new_window(proc->mlx, WIDTH, HEIGHT, "Cub3D");
 
 
-		void *img_ptr = mlx_xpm_file_to_image(proc->mlx, proc->img.no , &proc->img.img_x, &proc->img.img_y);
+		void *img_ptr = mlx_xpm_file_to_image(proc->mlx, proc->img.so , &proc->img.img_x, &proc->img.img_y);
 		proc->img.img_data_clr = (int *)mlx_get_data_addr(img_ptr, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
 
 		proc->screen_img = mlx_new_image(proc->mlx, WIDTH, HEIGHT);
@@ -45,6 +48,7 @@ static int	checker(char **av, t_proc *proc)
 	map_read(proc, av[1]);
 	map_trans_rpg_img_gmap(proc);
 	map_character_check(&proc->g_map);
+	g_mapexportintmap(proc);
 	if (!start_proc(proc))
 		printf("Error\nGame is not start");
 	return (0);

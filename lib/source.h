@@ -41,6 +41,7 @@ char	*ft_strchr(const char *str, int c);
 //function3.c
 int		ft_strlen(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2, char const *s3);
+int		ft_atoic(char str);
 
 //set_zero.c
 int		set_zero(t_proc *proc);
@@ -65,6 +66,7 @@ void	gmap_wall_oc_check(t_proc *proc);
 //mapread4.c
 int		frgbtrans(char **rgbno);
 int		crgbtrans(char **rgbno);
+void	g_mapexportintmap(t_proc *proc);
 
 //game_build.c
 int		game_render(t_proc *proc);

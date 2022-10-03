@@ -69,11 +69,12 @@ void	button_assignment(t_proc *proc)
 
 
 
+
 int	key_press(t_proc *proc)
 {
 		if (proc->kbd.w == 1) // ileri tuşu locx->posX   planeX->cam_x
 	{
-		proc->g_plyr.loc_x += 0.1;
+		proc->g_plyr.loc_x += proc->g_plyr.dir_x * proc->g_plyr.movespd;
 		
 
 
@@ -87,7 +88,7 @@ int	key_press(t_proc *proc)
 	}
 		if (proc->kbd.a == 1) // geri tuşu
 	{
-		proc->g_plyr.loc_y -= 0.1;
+		proc->g_plyr.loc_y -= 0.01;
 		
 		
 		/*
@@ -101,19 +102,19 @@ int	key_press(t_proc *proc)
 	}
 		if (proc->kbd.d == 1) // geri tuşu
 	{
-		proc->g_plyr.loc_y += 0.1;
+		proc->g_plyr.loc_y += 0.01;
 	}
 		if (proc->kbd.s == 1) // geri tuşu
 	{
-		proc->g_plyr.loc_x -= 0.1;
+		proc->g_plyr.loc_x -= 0.01;
 	}
 		if (proc->kbd.l == 1) // geri tuşu
 	{
-		proc->g_plyr.cam_y -= 0.1;
+		proc->g_plyr.cam_x -= 0.01;
 	}
 			if (proc->kbd.r == 1) // geri tuşu
 	{
-		proc->g_plyr.cam_y += 0.1;
+		proc->g_plyr.cam_x += 0.01;
 	}
 	mlx_clear_window(proc->mlx, proc->mlx_win);
 	f_rgb_up_color(proc);

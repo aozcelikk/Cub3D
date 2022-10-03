@@ -66,3 +66,12 @@ char	*ft_strjoin(char const *s1, char const *s2, char const *s3)
 	return (ab);
 }
 
+int	ft_atoic(char str)
+{
+	int	c;
+
+	c = 0;
+	if (str >= '0' && str <= '9')
+		c = str - '0';
+	return (c);
+}
