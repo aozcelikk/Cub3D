@@ -12,11 +12,6 @@
 
 #include "./lib/cub3D.h"
 
-
-void	zemin_renk(t_proc *s_data);
-void	tavan_renk(t_proc *s_data);
-int		print_map(t_proc *s_data);
-
 static int	start_proc(t_proc *proc)
 {
 	proc->mlx = mlx_init();
@@ -28,8 +23,8 @@ static int	start_proc(t_proc *proc)
 
 		proc->screen_img = mlx_new_image(proc->mlx, WIDTH, HEIGHT);
 		proc->screen_img_data = (int *)mlx_get_data_addr(proc->screen_img, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
-		tavan_renk(proc);
-		zemin_renk(proc);
+		f_rgb_up_color(proc);
+		c_rgb_down_color(proc);
 		print_map(proc);
 
 

@@ -53,7 +53,7 @@ static void	check_trans_frgb(char *Frgb, t_proc *proc)
 	if ((proc->f_rgb.rgb_r >= 0 && proc->f_rgb.rgb_r <= 255) \
 		&& (proc->f_rgb.rgb_g >= 0 && proc->f_rgb.rgb_g <= 255) \
 		&& (proc->f_rgb.rgb_b >= 0 && proc->f_rgb.rgb_b <= 255))
-		;
+		proc->f_rgb.rgb = frgbtrans(rgbno);
 	else
 	{
 		printf("Error\nFrgb not true");
@@ -81,7 +81,7 @@ static void	check_trans_crgb(char *Crgb, t_proc *proc)
 	if ((proc->c_rgb.rgb_r >= 0 && proc->c_rgb.rgb_r <= 255) \
 		&& (proc->c_rgb.rgb_g >= 0 && proc->c_rgb.rgb_g <= 255) \
 		&& (proc->c_rgb.rgb_b >= 0 && proc->c_rgb.rgb_b <= 255))
-		;
+		proc->c_rgb.rgb = crgbtrans(rgbno);
 	else
 	{
 		printf("Error\nCrgb not true");

@@ -12,7 +12,7 @@
 
 #include "./lib/cub3D.h"
 
-void	tavan_renk(t_proc *s_data)
+void	f_rgb_up_color(t_proc *proc)
 {
 	int	x;
 	int	y;
@@ -23,14 +23,14 @@ void	tavan_renk(t_proc *s_data)
 		y = 0;
 		while (y < HEIGHT / 2)
 		{
-			s_data->screen_img_data[y * WIDTH + x] = 255111111;
+			proc->screen_img_data[y * WIDTH + x] = proc->f_rgb.rgb;
 			y++;
 		}
 		x++;
 	}
 }
 
-void	zemin_renk(t_proc *s_data)
+void	c_rgb_down_color(t_proc *proc)
 {
 	int	x;
 	int	y;
@@ -39,7 +39,7 @@ void	zemin_renk(t_proc *s_data)
 	x = 0;
 	while (x < WIDTH && y < HEIGHT)
 	{
-		s_data->screen_img_data[y * WIDTH + x] = 25525341;
+		proc->screen_img_data[y * WIDTH + x] = proc->c_rgb.rgb;
 		x++;
 		if (x == WIDTH)
 		{
@@ -49,20 +49,24 @@ void	zemin_renk(t_proc *s_data)
 	}
 }
 
-
 int	print_map(t_proc *s_data)
 {
 	int	x;
 
 	x = 0;
+			if (s_data->g_plyr.cam_y == 0)
+			{
+		s_data->g_plyr.loc_x = 2;
+		s_data->g_plyr.loc_y = 11;
+		s_data->g_plyr.dir_x = 2;
+		s_data->g_plyr.dir_y = 2;
+		s_data->g_plyr.cam_x = 0.2;
+		s_data->g_plyr.cam_y = 0.2;
+			}
+
 	while (x < WIDTH)
 	{
-		s_data->g_plyr.loc_x = 3;
-		s_data->g_plyr.loc_y = 13;
-		s_data->g_plyr.dir_x = 0.66;
-		s_data->g_plyr.dir_y = 0.66;
-		s_data->g_plyr.cam_x = 1;
-		s_data->g_plyr.cam_y = 0;
+
 		double sideDistX;
 		double sideDistY;
 		int stepX;

@@ -36,6 +36,7 @@ typedef struct s_rpg
 	int		rgb_r;
 	int		rgb_b;
 	int		rgb_g;
+	int		rgb;
 }		t_rpg;
 
 typedef struct s_img
