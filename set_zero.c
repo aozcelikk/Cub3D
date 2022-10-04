@@ -38,19 +38,20 @@ static	void	kbd_zero(t_kbd *kbd)
 	kbd->w = 0;
 }
 
-static	void	rgp_zero(t_rpg *rpg)
+static	void	rgp_zero(t_rpg *rgb)
 {
-	rpg->rpg_g = 0;
-	rpg->rpg_p = 0;
-	rpg->rpg_r = 0;
+	rgb->rgb_r = 0;
+	rgb->rgb_g = 0;
+	rgb->rgb_b = 0;
 }
 
 int	set_zero(t_proc *proc)
 {
-	rgp_zero(&proc->f_rpg);
-	rgp_zero(&proc->c_rpg);
+	rgp_zero(&proc->f_rgb);
+	rgp_zero(&proc->c_rgb);
 	kbd_zero(&proc->kbd);
 	gmap_zero(&proc->g_map);
 	proc_zero(proc);
+	set_zero2(proc);
 	return (1);
 }

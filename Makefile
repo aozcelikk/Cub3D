@@ -3,12 +3,15 @@ CFLAGS			=	-Wall -Wextra -Werror -Imlx
 NAME			=	cub3D
 RM				=	rm -rf
 LMLX_M			=	-Lmlx -lmlx -framework OpenGL -framework AppKit
-SOURCE			=	main.c mapcheck.c function.c function2.c mapread.c mapread2.c\
-					set_zero.c\
+SOURCE			=	main.c mapcheck.c function.c function2.c function3.c \
+					button_assignment.c key_move.c \
+					mapread.c mapread2.c mapread3.c mapread4.c \
+					game_build.c game_build2.c game_build3.c \
+					set_zero.c set_zero2.c\
 					
 					
 
-MLXM	=	 ./mlx/libmlx.a $(LMLX_M)
+MLXM	=	 $(C_MLXD) $(LMLX_M)
 
 OBJECT			=	$(SOURCE:.c=.o)
 
@@ -18,12 +21,13 @@ C_MLXD			=	./mlx/libmlx.a
 all: 				$(NAME)
 
 $(NAME):			$(OBJECT)
-					@echo "$(YELLOW)Minilibx compiling...$(END)"
+					@echo "$(YELLOW)Compiling...$(END)"
 					@$(MAKE) -C $(C_MLXC)
 					@$(CC) $(CFLAGS) $(OBJECT) $(MLXM) -o ${NAME}
 					@echo "$(GREEN)===>Done<===$(END)"	
 
 %.o:		%.c
+					@echo "$(YELLOW)Compiling...$(END)"
 					$(CC) -c $(CFLAGS) -o $@ $<
 					@printf "$(GREEN)"
 					

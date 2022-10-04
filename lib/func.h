@@ -16,6 +16,7 @@
 typedef struct s_gmap
 {
 	char	**map;
+	int		**mapi;
 	int		c_arg;
 	int		c_idx;
 	int		char_cnt;
@@ -33,9 +34,10 @@ typedef struct s_kbd
 
 typedef struct s_rpg
 {
-	int		rpg_r;
-	int		rpg_p;
-	int		rpg_g;
+	int		rgb_r;
+	int		rgb_b;
+	int		rgb_g;
+	int		rgb;
 }		t_rpg;
 
 typedef struct s_img
@@ -44,7 +46,25 @@ typedef struct s_img
 	char	*so;
 	char	*we;
 	char	*ea;
+	int		img_x;
+	int		img_y;
+	int		*img_data_clr;
+	int		per_pxl;
+	int		size_line;
+	int		endian;
 }		t_img;
+
+typedef struct s_plyr
+{
+	double	loc_x;
+	double	loc_y;
+	double	dir_x;
+	double	dir_y;
+	double	cam_x;
+	double	cam_y;
+	double	movespd;
+	double	rotspd;
+}		t_plyr;
 
 typedef struct s_proc
 {
@@ -52,16 +72,19 @@ typedef struct s_proc
 	void	*mlx_win;
 	void	**img_path;
 	char	**map;
+	int		*screen_img_data;
+	void	*screen_img;
 	int		row_cnt;
 	int		row_len;
 	int		new_cnt;
 	int		c_arg;
 	int		c_idx;
-	t_rpg	f_rpg;
-	t_rpg	c_rpg;
+	t_rpg	f_rgb;
+	t_rpg	c_rgb;
 	t_kbd	kbd;
 	t_img	img;
 	t_gmap	g_map;
+	t_plyr	g_plyr;
 }		t_proc;
 
 #endif
