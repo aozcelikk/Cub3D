@@ -31,7 +31,7 @@ int	crgbtrans(char **rgbno)
 	rgbnu = ft_atoi(crgb);
 	return (rgbnu);
 }
-
+/*
 static int	g_maptointmap(t_proc *proc)
 {
 	int	i;
@@ -60,19 +60,21 @@ static int	g_maptointmap(t_proc *proc)
 	}
 	return (idx + tab);
 }
-
+*/
 void	g_mapexportintmap(t_proc *proc)
-{
+{	(void)proc;/*
 	int		idx;
 	int		i;
 	int		j;
-	int		**imap;
+	int		**imap = NULL;
 	char	**cmap;
 
 	idx = g_maptointmap(proc);
 	cmap = proc->g_map.map;
 	i = 0;
 	j = 0;
+	while (idx-- > 0)
+		ft_calloc(imap[idx], sizeof(imap));
 	while (cmap[i][j])
 	{
 		j = 0;
@@ -90,10 +92,5 @@ void	g_mapexportintmap(t_proc *proc)
 		}
 		i++;
 	}
-	while (imap[idx][idx])
-	{
-		
-	}
-
-	proc->g_map.mapi = imap;
+	proc->g_map.mapi = imap;*/
 }

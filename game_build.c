@@ -49,20 +49,73 @@ void	c_rgb_down_color(t_proc *proc)
 	}
 }
 
+int	iMap[24][24] = 
+{
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+};
+
+
+int	key_press(t_proc *proc)
+{
+	if (proc->kbd.w == 1)
+		key_forward(proc, iMap);
+	if (proc->kbd.s == 1)
+		key_backward(proc, iMap);
+	if (proc->kbd.d == 1)
+		key_right(proc, iMap);
+	if (proc->kbd.a == 1)
+		key_left(proc, iMap);
+	if (proc->kbd.r == 1)
+		camera_right(proc);
+	if (proc->kbd.l == 1)
+		camera_left(proc);
+	mlx_clear_window(proc->mlx, proc->mlx_win);
+	f_rgb_up_color(proc);
+	c_rgb_down_color(proc);
+	print_map(proc);
+	return (0);
+}
+
+
 int	print_map(t_proc *s_data)
 {
 	int	x;
 
 	x = 0;
-			if (s_data->g_plyr.cam_y == 0)
-			{
-		s_data->g_plyr.loc_x = 2;
-		s_data->g_plyr.loc_y = 11;
-		s_data->g_plyr.dir_x = 2;
-		s_data->g_plyr.dir_y = 2;
-		s_data->g_plyr.cam_x = 0.2;
-		s_data->g_plyr.cam_y = 0.2;
-			}
+		if (s_data->g_plyr.cam_y == 0)
+		{
+			s_data->g_plyr.loc_x = 12;
+			s_data->g_plyr.loc_y = 5;
+			s_data->g_plyr.dir_x = -1;
+			s_data->g_plyr.dir_y = 0;
+			s_data->g_plyr.cam_x = 0;
+			s_data->g_plyr.cam_y = 0.66;
+			s_data->g_plyr.movespd = 0.09;
+			s_data->g_plyr.rotspd = 0.09;
+		}
 
 	while (x < WIDTH)
 	{
@@ -95,7 +148,7 @@ int	print_map(t_proc *s_data)
 		if (rayDirY < 0)
 		{
 			stepY = -1;
-			sideDistY = (s_data->g_plyr.loc_x - mapY) * deltaDistY;
+			sideDistY = (s_data->g_plyr.loc_y - mapY) * deltaDistY;
 		}
 		else
 		{
@@ -116,7 +169,7 @@ int	print_map(t_proc *s_data)
 				mapY += stepY;
 				side = 1;
 			}
-			if (s_data->g_map.mapi[mapX][mapY] > 0)
+			if (iMap[mapX][mapY] == 1)//(s_data->g_map.mapi[mapX][mapY] > 0)
 				hit = 1;
 		}
 		if (side == 0)
