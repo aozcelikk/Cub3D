@@ -26,6 +26,9 @@ static int	start_proc(t_proc *proc)
 
 		proc->screen_img = mlx_new_image(proc->mlx, WIDTH, HEIGHT);
 		proc->screen_img_data = (int *)mlx_get_data_addr(proc->screen_img, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
+		int	i,j; j = 0; i = 0;
+
+		//
 		f_rgb_up_color(proc);
 		c_rgb_down_color(proc);
 		print_map(proc);

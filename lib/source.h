@@ -66,6 +66,7 @@ void	gmap_wall_oc_check(t_proc *proc);
 //mapread4.c
 int		frgbtrans(char **rgbno);
 int		crgbtrans(char **rgbno);
+char	poles_casting(char cmap);
 void	g_mapexportintmap(t_proc *proc);
 
 //game_build.c
@@ -90,10 +91,10 @@ void	camera_right(t_proc *proc);
 void	camera_left(t_proc *proc);
 
 //key_move.c
-void	key_forward(t_proc *proc, int iMap[24][24]);
-void	key_backward(t_proc *proc, int iMap[24][24]);
-void	key_right(t_proc *proc, int iMap[24][24]);
-void	key_left(t_proc *proc, int iMap[24][24]);
+void	key_forward(t_proc *proc);
+void	key_backward(t_proc *proc);
+void	key_right(t_proc *proc);
+void	key_left(t_proc *proc);
 
 // kontorl edilecek
 int		key_press(t_proc *proc);

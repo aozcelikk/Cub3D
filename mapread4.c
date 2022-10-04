@@ -31,7 +31,7 @@ int	crgbtrans(char **rgbno)
 	rgbnu = ft_atoi(crgb);
 	return (rgbnu);
 }
-/*
+#include <string.h>
 static int	g_maptointmap(t_proc *proc)
 {
 	int	i;
@@ -60,37 +60,74 @@ static int	g_maptointmap(t_proc *proc)
 	}
 	return (idx + tab);
 }
-*/
+
+static int	*set2zero(int *map_line, int idx)
+{
+	int		*tmp;
+
+	map_line = (int *)malloc(sizeof(int) * (idx + 1));
+	if (!map_line)
+		return (0);
+	tmp = map_line;
+	while (*tmp)
+		bzero(tmp++, idx);  //FORBIDDEN FUCNTION bzero !!!
+	return (map_line);
+}	
+
 void	g_mapexportintmap(t_proc *proc)
-{	(void)proc;/*
+{	
 	int		idx;
 	int		i;
 	int		j;
-	int		**imap = NULL;
+	int		**imap;
 	char	**cmap;
 
-	idx = g_maptointmap(proc);
-	cmap = proc->g_map.map;
 	i = 0;
 	j = 0;
-	while (idx-- > 0)
-		ft_calloc(imap[idx], sizeof(imap));
+	cmap = proc->g_map.map;
+	idx = g_maptointmap(proc);
+	imap = (int **)malloc(sizeof(int *) * (idx + 1));
+	if (!imap)
+		return ;
+	i = idx;
+	while (idx)
+	{
+		imap[idx] = set2zero(imap[idx], i);
+		idx--;
+	}
+
+	i = 0;
+	idx = 0;
 	while (cmap[i][j])
 	{
 		j = 0;
 		while (cmap[i][j])
 		{
-			if (cmap[i][j] == '1' || cmap[i][j] != '0')
-				idx = ft_atoic(cmap[i][j]);
-			else if (cmap[i][j] == 'N' || cmap[i][j] == 'S' \
-					|| cmap[i][j] == 'W' || cmap[i][j] == 'E')
-				;
-			else if (cmap[i][j] == ' ')
-				idx = 0;
-			imap[i][j] = idx;
+			if (cmap[i][j] == 'N' || cmap[i][j] == 'S' || cmap[i][j] == 'W' || cmap[i][j] == 'E' || cmap[i][j] == ' ')
+			{
+				cmap[i][j] = poles_casting(cmap[i][j]);
+			}
+			idx = ft_atoic(cmap[i][j]);
+			printf("idx = %d\ti = %d\tj = %d\n", idx, i, j);
+			//imap[i][j] = idx;
 			j++;
 		}
 		i++;
 	}
-	proc->g_map.mapi = imap;*/
+	proc->g_map.mapi = imap;
+}
+
+char	poles_casting(char cmap)
+{
+	if (cmap == 'E')
+		cmap = '2';
+	else if (cmap == 'W')
+		cmap = '3';
+	else if (cmap == 'N')
+		cmap = '4';
+	else if (cmap == 'S')
+		cmap = '5';
+	else if (cmap == ' ')
+		cmap = '0';
+	return (cmap);
 }

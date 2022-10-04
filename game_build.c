@@ -81,13 +81,13 @@ int	iMap[24][24] =
 int	key_press(t_proc *proc)
 {
 	if (proc->kbd.w == 1)
-		key_forward(proc, iMap);
+		key_forward(proc);
 	if (proc->kbd.s == 1)
-		key_backward(proc, iMap);
+		key_backward(proc);
 	if (proc->kbd.d == 1)
-		key_right(proc, iMap);
+		key_right(proc);
 	if (proc->kbd.a == 1)
-		key_left(proc, iMap);
+		key_left(proc);
 	if (proc->kbd.r == 1)
 		camera_right(proc);
 	if (proc->kbd.l == 1)
@@ -113,8 +113,8 @@ int	print_map(t_proc *s_data)
 			s_data->g_plyr.dir_y = 0;
 			s_data->g_plyr.cam_x = 0;
 			s_data->g_plyr.cam_y = 0.66;
-			s_data->g_plyr.movespd = 0.09;
-			s_data->g_plyr.rotspd = 0.09;
+			s_data->g_plyr.movespd = 0.05;
+			s_data->g_plyr.rotspd = 0.05;
 		}
 
 	while (x < WIDTH)
@@ -169,7 +169,7 @@ int	print_map(t_proc *s_data)
 				mapY += stepY;
 				side = 1;
 			}
-			if (iMap[mapX][mapY] == 1)//(s_data->g_map.mapi[mapX][mapY] > 0)
+			if (s_data->g_map.mapi[mapX][mapY] == 1)//(s_data->g_map.mapi[mapX][mapY] > 0)
 				hit = 1;
 		}
 		if (side == 0)
