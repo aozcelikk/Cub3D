@@ -16,8 +16,8 @@
 //sort code
 # define WIDTH 1920
 # define HEIGHT 1080
-# define IMG_WIDTH 600
-# define IMG_HEIGHT 300
+# define IMG_WIDTH 256
+# define IMG_HEIGHT 256
 
 //mapcheck.c
 
@@ -91,10 +91,10 @@ void	camera_right(t_proc *proc);
 void	camera_left(t_proc *proc);
 
 //key_move.c
-void	key_forward(t_proc *proc);
-void	key_backward(t_proc *proc);
-void	key_right(t_proc *proc);
-void	key_left(t_proc *proc);
+void	key_forward(t_proc *proc, int iMap[24][24]);
+void	key_backward(t_proc *proc, int iMap[24][24]);
+void	key_right(t_proc *proc, int iMap[24][24]);
+void	key_left(t_proc *proc, int iMap[24][24]);
 
 // kontorl edilecek
 int		key_press(t_proc *proc);

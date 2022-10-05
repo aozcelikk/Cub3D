@@ -48,6 +48,9 @@ typedef struct s_img
 	char	*ea;
 	int		img_x;
 	int		img_y;
+	char	*imgadd;
+	void	*img;
+	int		bbp;
 	int		*img_data_clr;
 	int		per_pxl;
 	int		size_line;
@@ -83,6 +86,8 @@ typedef struct s_proc
 	t_rpg	c_rgb;
 	t_kbd	kbd;
 	t_img	img;
+	t_img	imgs[4];
+	t_img	screen;
 	t_gmap	g_map;
 	t_plyr	g_plyr;
 }		t_proc;

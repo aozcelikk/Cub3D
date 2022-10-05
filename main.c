@@ -21,14 +21,40 @@ static int	start_proc(t_proc *proc)
 	proc->mlx_win = mlx_new_window(proc->mlx, WIDTH, HEIGHT, "Cub3D");
 
 
-		void *img_ptr = mlx_xpm_file_to_image(proc->mlx, proc->img.so , &proc->img.img_x, &proc->img.img_y);
+		void *img_ptr = mlx_xpm_file_to_image(proc->mlx, proc->img.ea , &proc->img.img_x, &proc->img.img_y);
 		proc->img.img_data_clr = (int *)mlx_get_data_addr(img_ptr, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
 
 		proc->screen_img = mlx_new_image(proc->mlx, WIDTH, HEIGHT);
 		proc->screen_img_data = (int *)mlx_get_data_addr(proc->screen_img, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
-		int	i,j; j = 0; i = 0;
 
-		//
+
+
+
+		// void *img_ptr = mlx_xpm_file_to_image(proc->mlx, proc->img.so , &proc->img.img_x, &proc->img.img_y);
+		// proc->screen_img_data = (int *)mlx_get_data_addr(img_ptr, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
+		// proc->img.img_data_clr = (int *)mlx_get_data_addr(img_ptr, &proc->img.per_pxl, &proc->img.size_line, &proc->img.endian);
+		// proc->imgs[0].img = mlx_xpm_file_to_image(proc->mlx,
+		// 	proc->img.no, &proc->imgs[0].img_y, &proc->imgs[0].img_x);
+		// proc->imgs[1].img = mlx_xpm_file_to_image(proc->mlx,
+		// 	proc->img.so, &proc->imgs[1].img_y, &proc->imgs[1].img_x);
+		// proc->imgs[2].img = mlx_xpm_file_to_image(proc->mlx,
+		// 	proc->img.we, &proc->imgs[2].img_y, &proc->imgs[2].img_x);
+		// proc->imgs[3].img = mlx_xpm_file_to_image(proc->mlx,
+		// 	proc->img.ea, &proc->imgs[3].img_y, &proc->imgs[3].img_x);
+
+		// proc->imgs[0].imgadd = mlx_get_data_addr(proc->imgs[0].img,
+		// 	&proc->imgs[0].bbp, &proc->imgs[0].size_line, &proc->imgs[0].endian);
+		// proc->imgs[1].imgadd = mlx_get_data_addr(proc->imgs[1].img,
+		// 	&proc->imgs[1].bbp, &proc->imgs[1].size_line, &proc->imgs[1].endian);
+		// proc->imgs[2].imgadd = mlx_get_data_addr(proc->imgs[2].img,
+		// 	&proc->imgs[2].bbp, &proc->imgs[2].size_line, &proc->imgs[2].endian);
+		// proc->imgs[3].imgadd = mlx_get_data_addr(proc->imgs[3].img,
+		// 	&proc->imgs[3].bbp, &proc->imgs[3].size_line, &proc->imgs[3].endian);
+
+		// proc->screen.img_y = WIDTH;
+		// proc->screen.img_x = HEIGHT;
+		// proc->screen.img = mlx_new_image(proc->mlx, WIDTH, HEIGHT);
+		// proc->screen.imgadd = mlx_get_data_addr(proc->screen.img, &proc->screen.bbp, &proc->screen.size_line, &proc->screen.endian);
 		f_rgb_up_color(proc);
 		c_rgb_down_color(proc);
 		print_map(proc);
@@ -51,7 +77,7 @@ static int	checker(char **av, t_proc *proc)
 	map_read(proc, av[1]);
 	map_trans_rpg_img_gmap(proc);
 	map_character_check(&proc->g_map);
-	g_mapexportintmap(proc);
+	//g_mapexportintmap(proc);
 	if (!start_proc(proc))
 		printf("Error\nGame is not start");
 	return (0);

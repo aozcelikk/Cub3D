@@ -31,7 +31,7 @@ int	crgbtrans(char **rgbno)
 	rgbnu = ft_atoi(crgb);
 	return (rgbnu);
 }
-#include <string.h>
+#include <string.h>/*
 static int	g_maptointmap(t_proc *proc)
 {
 	int	i;
@@ -131,3 +131,4 @@ char	poles_casting(char cmap)
 		cmap = '0';
 	return (cmap);
 }
+*/
