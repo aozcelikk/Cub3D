@@ -54,6 +54,27 @@ int	button_down(int key, t_proc *proc)
 	return (0);
 }
 
+int	key_press(t_proc *proc)
+{
+	if (proc->kbd.w == 1)
+		key_forward(proc);
+	if (proc->kbd.s == 1)
+		key_backward(proc);
+	if (proc->kbd.d == 1)
+		key_right(proc);
+	if (proc->kbd.a == 1)
+		key_left(proc);
+	if (proc->kbd.r == 1)
+		camera_right(proc);
+	if (proc->kbd.l == 1)
+		camera_left(proc);
+	mlx_clear_window(proc->mlx, proc->mlx_win);
+	f_rgb_up_color(proc);
+	c_rgb_down_color(proc);
+	print_map(proc);
+	return (0);
+}
+
 void	button_assignment(t_proc *proc)
 {
 	mlx_hook(proc->mlx_win, 2, 0, button_up, proc);
