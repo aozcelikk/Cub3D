@@ -4,10 +4,10 @@ NAME			=	cub3D
 RM				=	rm -rf
 LMLX_M			=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 SOURCE			=	main.c mapcheck.c \
-					function.c function2.c function3.c function4.c \
+					function.c function2.c function3.c \
 					button_assignment.c key_move.c key_camera.c \
 					mapread.c mapread2.c mapread3.c mapread4.c \
-					game_build.c game_build2.c game_build3.c \
+					game_build.c \
 					set_zero.c set_zero2.c\
 					
 					

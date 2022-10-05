@@ -12,19 +12,19 @@
 
 #include "./lib/cub3D.h"
 
-static void	set_plyr_zero(t_plyr *player)
+static void	set_plyr_zero(t_proc *proc)
 {
-	player->cam_x = 0;
-	player->cam_y = 0;
-	player->dir_x = 0;
-	player->dir_y = 0;
-	player->loc_x = 0;
-	player->loc_y = 0;
-	player->movespd = 0;
-	player->rotspd = 0;
+	proc->g_plyr.cam_x = 0;
+	proc->g_plyr.cam_y = 0.66;
+	proc->g_plyr.dir_x = -1;
+	proc->g_plyr.dir_y = 0;
+	proc->g_plyr.loc_x = 2;
+	proc->g_plyr.loc_y = 16;
+	proc->g_plyr.movespd = 0.03;
+	proc->g_plyr.rotspd = 0.02;
 }
 
 void	set_zero2(t_proc *proc)
 {
-	set_plyr_zero(&proc->g_plyr);
+	set_plyr_zero(proc);
 }

@@ -12,8 +12,9 @@
 
 #include "./lib/cub3D.h"
 
-void	key_forward(t_proc *proc, int iMap[24][24]) //proc->g_map.mapi
+void	key_forward(t_proc *proc) //proc->g_map.mapi
 {
+	int	**iMap = proc->g_map.mapi;
 	if (!iMap[(int)(proc->g_plyr.loc_x + proc->g_plyr.dir_x * \
 	proc->g_plyr.movespd)][(int)(proc->g_plyr.loc_y)])
 		proc->g_plyr.loc_x += proc->g_plyr.dir_x * proc->g_plyr.movespd;
@@ -22,8 +23,9 @@ void	key_forward(t_proc *proc, int iMap[24][24]) //proc->g_map.mapi
 		proc->g_plyr.loc_y += proc->g_plyr.dir_y * proc->g_plyr.movespd;
 }
 
-void	key_backward(t_proc *proc, int iMap[24][24])
+void	key_backward(t_proc *proc)
 {
+	int	**iMap = proc->g_map.mapi;
 	if (!iMap[(int)(proc->g_plyr.loc_x - proc->g_plyr.dir_x * \
 	proc->g_plyr.movespd)][(int)(proc->g_plyr.loc_y)])
 		proc->g_plyr.loc_x -= proc->g_plyr.dir_x * proc->g_plyr.movespd;
@@ -32,8 +34,9 @@ void	key_backward(t_proc *proc, int iMap[24][24])
 		proc->g_plyr.loc_y -= proc->g_plyr.dir_y * proc->g_plyr.movespd;
 }
 
-void	key_right(t_proc *proc, int iMap[24][24])
+void	key_right(t_proc *proc)
 {
+	int	**iMap = proc->g_map.mapi;
 	if (!iMap[(int)(proc->g_plyr.loc_x + proc->g_plyr.dir_x * \
 	proc->g_plyr.movespd)][(int)(proc->g_plyr.loc_y)])
 		proc->g_plyr.loc_y -= proc->g_plyr.dir_x * proc->g_plyr.movespd;
@@ -42,8 +45,9 @@ void	key_right(t_proc *proc, int iMap[24][24])
 		proc->g_plyr.loc_x += proc->g_plyr.dir_y * proc->g_plyr.movespd;
 }
 
-void	key_left(t_proc *proc, int iMap[24][24])
+void	key_left(t_proc *proc)
 {
+	int	**iMap = proc->g_map.mapi;
 	if (!iMap[(int)(proc->g_plyr.loc_x - proc->g_plyr.dir_x * \
 	proc->g_plyr.movespd)][(int)(proc->g_plyr.loc_y)])
 		proc->g_plyr.loc_y += proc->g_plyr.dir_x * proc->g_plyr.movespd;

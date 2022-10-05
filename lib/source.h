@@ -74,12 +74,6 @@ int		game_render(t_proc *proc);
 void	f_rgb_up_color(t_proc *proc);
 void	c_rgb_down_color(t_proc *proc);
 
-//game_build2.c
-void	character_rot(t_proc *proc);
-
-//game_build3.c
-void	char_lock_rot(t_proc *proc);
-
 //button_assignment.c
 int		ft_exit(void *tmp);
 int		button_up(int key, t_proc *proc);
@@ -91,10 +85,10 @@ void	camera_right(t_proc *proc);
 void	camera_left(t_proc *proc);
 
 //key_move.c
-void	key_forward(t_proc *proc, int iMap[24][24]);
-void	key_backward(t_proc *proc, int iMap[24][24]);
-void	key_right(t_proc *proc, int iMap[24][24]);
-void	key_left(t_proc *proc, int iMap[24][24]);
+void	key_forward(t_proc *proc);
+void	key_backward(t_proc *proc);
+void	key_right(t_proc *proc);
+void	key_left(t_proc *proc);
 
 // kontorl edilecek
 int		key_press(t_proc *proc);

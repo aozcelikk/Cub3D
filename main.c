@@ -77,7 +77,7 @@ static int	checker(char **av, t_proc *proc)
 	map_read(proc, av[1]);
 	map_trans_rpg_img_gmap(proc);
 	map_character_check(&proc->g_map);
-	//g_mapexportintmap(proc);
+	g_mapexportintmap(proc);
 	if (!start_proc(proc))
 		printf("Error\nGame is not start");
 	return (0);
