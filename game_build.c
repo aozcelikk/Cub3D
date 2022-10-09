@@ -23,52 +23,22 @@ void	game_pixel_put(t_proc *proc, int x, int y, int color)
 
 void	f_rgb_up_color(t_proc *proc)
 {
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x < WIDTH)
+	while (proc->y < HEIGHT)
 	{
-		y = 0;
-		while (y < HEIGHT / 2)
-		{
-			game_pixel_put(proc, x, y, proc->f_rgb.rgb);
-			y++;
-		}
-		x++;
+		game_pixel_put(proc, proc->x, HEIGHT - proc->y - 1, proc->f_rgb.rgb);
+		proc->y++;
 	}
 }
 
 void	c_rgb_down_color(t_proc *proc)
 {
-	int	x;
-	int	y;
-
-	y = HEIGHT / 2;
-	x = 0;
-	while (x < WIDTH && y < HEIGHT)
+	if (proc->draw_end < 0)
+		proc->draw_end = HEIGHT;
+	proc->y = proc->draw_end;
+	while (proc->y < HEIGHT)
 	{
-		game_pixel_put(proc, x, y, proc->c_rgb.rgb);
-		x++;
-		if (x == WIDTH)
-		{
-			y++;
-			x = 0;
-		}
-	}
-}
-
-static void	color_floor_ceiling(t_proc *data)
-{
-	if (data->draw_end < 0)
-		data->draw_end = HEIGHT;
-	data->y = data->draw_end;
-	while (data->y < HEIGHT)
-	{
-		game_pixel_put(data, data->x, data->y, data->f_rgb.rgb);
-		game_pixel_put(data, data->x, HEIGHT - data->y - 1,
-			data->c_rgb.rgb);
-		data->y++;
+		game_pixel_put(proc, proc->x, proc->y, proc->c_rgb.rgb);
+		proc->y++;
 	}
 }
 
@@ -84,9 +54,8 @@ int	print_map(t_proc *proc)
 		while (proc->x < WIDTH)
 		{
 			raycasting_all(proc);
-			color_floor_ceiling(proc);
-			//f_rgb_up_color(proc);
-			//c_rgb_down_color(proc);
+			f_rgb_up_color(proc);
+			c_rgb_down_color(proc);
 			proc->x++;
 		}
 	}
