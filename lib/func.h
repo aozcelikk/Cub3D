@@ -46,7 +46,6 @@ typedef struct s_img
 	char	*so;
 	char	*we;
 	char	*ea;
-
 	void	*img;
 	char	*imgadd;
 	int		img_x;
@@ -55,27 +54,26 @@ typedef struct s_img
 
 typedef struct s_plyr
 {
-	double	loc_x; //pos_x
-	double	loc_y; //pos_y
+	double	loc_x;
+	double	loc_y;
 	double	dir_x;
 	double	dir_y;
-	double	sdist_x; //yarıçap uzunluğu
+	double	sdist_x;
 	double	sdist_y;
-	double	ddist_x; // 3D algılama uzunluğu
+	double	ddist_x;
 	double	ddist_y;
 	double	movespd;
 	double	rotspd;
-	double	cam_x; // kamera yeri
+	double	cam_x;
 	double	cam_y;
 	double	map_x;
 	double	map_y;
-
 	double	wall_x;
 	double	wall_y;
-	double	wall_dist; // Duvar mesafesi
-	int		wall_pass; //duvar geçebilirlik duvar var yok
-	int		wall_dir; // duvar yönü varsa hangi yönde
-	int		sx; //başlangıç adım
+	double	wall_dist;
+	int		wall_pass;
+	int		wall_dir;
+	int		sx;
 	int		sy;
 
 }		t_plyr;
@@ -109,13 +107,11 @@ typedef struct s_proc
 	int		line_size;
 	int		endian;
 	int		color;
-
 	int		x;
 	int		y;
 	int		draw_start;
 	int		draw_end;
 	int		lineheight;
-
 	t_rpg	f_rgb;
 	t_rpg	c_rgb;
 	t_kbd	kbd;
