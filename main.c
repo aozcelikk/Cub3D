@@ -15,7 +15,10 @@
 static int	start_proc(t_proc *proc)
 {
 	proc->mlx = mlx_init();
-	proc->mlx_win = mlx_new_window(proc->mlx, 1920, 1080, "Cub3D");
+	proc->mlx_win = mlx_new_window(proc->mlx, WIDTH, HEIGHT, "Cub3D");
+	wall_image_make(proc);
+	mlx_image_make(proc);
+	button_assignment(proc);
 	mlx_loop(proc->mlx);
 	return (0);
 }
@@ -30,6 +33,7 @@ static int	checker(char **av, t_proc *proc)
 	map_read(proc, av[1]);
 	map_trans_rpg_img_gmap(proc);
 	map_character_check(&proc->g_map);
+	g_mapexportintmap(proc);
 	if (!start_proc(proc))
 		printf("Error\nGame is not start");
 	return (0);
