@@ -99,14 +99,14 @@ void	g_mapexportintmap(t_proc *proc)
 
 char	poles_casting(char cmap, int i, int j, t_proc *proc)
 {
-	if (cmap == 'E' && player_loc(proc, j, i, cmap))
-		cmap = '0';
-	else if (cmap == 'W' && player_loc(proc, j, i, cmap))
-		cmap = '0';
-	else if (cmap == 'N' && player_loc(proc, j, i, cmap))
-		cmap = '0';
-	else if (cmap == 'S' && player_loc(proc, j, i, cmap))
-		cmap = '0';
+	if (cmap == 'E')
+		player_loc(proc, j, i, cmap);
+	else if (cmap == 'W')
+		player_loc(proc, j, i, cmap);
+	else if (cmap == 'N')
+		player_loc(proc, j, i, cmap);
+	else if (cmap == 'S')
+		player_loc(proc, j, i, cmap);
 	else
 		cmap = '1';
 	return (cmap);

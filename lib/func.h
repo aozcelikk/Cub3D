@@ -78,7 +78,6 @@ typedef struct s_plyr
 	int		sx; //başlangıç adım
 	int		sy;
 
-
 }		t_plyr;
 
 typedef struct s_cam

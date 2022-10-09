@@ -97,7 +97,6 @@ void	raycasting_wall_dist(t_proc *proc)
 	}
 }
 
-
 void	raycasting_wall_orien(t_proc *proc)
 {
 	if (proc->g_plyr.wall_dir == 0)

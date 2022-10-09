@@ -98,7 +98,7 @@ void	raycasting_wall_dist(t_proc *proc);
 void	raycasting_wall_orien(t_proc *proc);
 
 //playerloc.c
-int		player_loc(t_proc *proc, int x, int y, char c);
+void	player_loc(t_proc *proc, int x, int y, char c);
 
 // kontorl edilecek
 int		key_press(t_proc *proc);
