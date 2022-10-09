@@ -38,6 +38,8 @@ int	button_up(int key, t_proc *proc)
 		proc->kbd.r = 1;
 		proc->g_plyr.rotspd = 0.1;
 	}
+	else if (key == 257)
+		proc->g_plyr.movespd += 0.09;
 	else if (key == 53)
 		exit(1);
 	return (1);
@@ -57,6 +59,8 @@ int	button_down(int key, t_proc *proc)
 		proc->kbd.l = 0;
 	else if (key == 124)
 		proc->kbd.r = 0;
+	else if (key == 257)
+		proc->g_plyr.movespd -= 0.09;
 	return (1);
 }
 

@@ -6,7 +6,7 @@ LMLX_M			=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 SOURCE			=	main.c mapcheck.c \
 					function.c function2.c function3.c \
 					button_assignment.c key_move.c \
-					mapread.c mapread2.c mapread3.c mapread4.c \
+					mapread.c mapread2.c mapread3.c mapread4.c mapread5.c\
 					game_build.c wall_image_making.c \
 					set_zero.c set_zero2.c\
 					playerloc.c raycasting_init.c \

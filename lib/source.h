@@ -66,8 +66,10 @@ void	gmap_wall_oc_check(t_proc *proc);
 //mapread4.c
 int		frgbtrans(char **rgbno);
 int		crgbtrans(char **rgbno);
-char	poles_casting(char cmap, int i, int j, t_proc *proc);
 void	g_mapexportintmap(t_proc *proc);
+
+//mapread5.c
+char	poles_casting(char cmap, int i, int j, t_proc *proc);
 
 //game_build.c
 void	f_rgb_up_color(t_proc *proc);
