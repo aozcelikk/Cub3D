@@ -31,12 +31,12 @@ int	button_up(int key, t_proc *proc)
 	else if (key == 123)
 	{
 		proc->kbd.l = 1;
-		proc->g_plyr.rotspd = -0.1;
+		proc->g_plyr.rotspd = -0.06;
 	}
 	else if (key == 124)
 	{
 		proc->kbd.r = 1;
-		proc->g_plyr.rotspd = 0.1;
+		proc->g_plyr.rotspd = 0.06;
 	}
 	else if (key == 257)
 		proc->g_plyr.movespd += 0.09;

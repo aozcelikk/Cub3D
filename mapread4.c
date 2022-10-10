@@ -61,24 +61,12 @@ static int	g_maptointmap(t_proc *proc)
 	return (idx + tab);
 }
 
-void	g_mapexportintmap(t_proc *proc)
+static void	g_mapexportintmap2(t_proc *proc, int i, int j, int **imap)
 {
 	int		idx;
-	int		i;
-	int		j;
-	int		**imap;
 	char	**cmap;
 
-	i = 0;
-	j = 0;
 	cmap = proc->g_map.map;
-	idx = g_maptointmap(proc);
-	imap = (int **)malloc(sizeof(int *) * (idx + 1));
-	while (j < idx)
-	{
-		imap[j] = malloc(sizeof(int) * (idx + 1));
-		j++;
-	}
 	while (cmap[i])
 	{
 		j = 0;
@@ -93,5 +81,24 @@ void	g_mapexportintmap(t_proc *proc)
 		}
 		i++;
 	}
+}
+
+void	g_mapexportintmap(t_proc *proc)
+{
+	int		idx;
+	int		i;
+	int		j;
+	int		**imap;
+
+	i = 0;
+	j = 0;
+	idx = g_maptointmap(proc);
+	imap = (int **)malloc(sizeof(int *) * (idx + 1));
+	while (j < idx)
+	{
+		imap[j] = malloc(sizeof(int) * (idx + 1));
+		j++;
+	}
+	g_mapexportintmap2(proc, i, j, imap);
 	proc->g_map.mapi = imap;
 }
