@@ -14,15 +14,28 @@
 
 char	poles_casting(char cmap, int i, int j, t_proc *proc)
 {
-	if (cmap == 'E')
-		player_loc(proc, j, i, cmap);
-	else if (cmap == 'W')
-		player_loc(proc, j, i, cmap);
-	else if (cmap == 'N')
-		player_loc(proc, j, i, cmap);
-	else if (cmap == 'S')
-		player_loc(proc, j, i, cmap);
+	if (cmap == 'E' && player_loc2(proc, j, i, cmap))
+		cmap = '0';
+	else if (cmap == 'W' && player_loc2(proc, j, i, cmap))
+		cmap = '0';
+	else if (cmap == 'N' && player_loc(proc, j, i, cmap))
+		cmap = '0';
+	else if (cmap == 'S' && player_loc(proc, j, i, cmap))
+		cmap = '0';
 	else
 		cmap = '1';
 	return (cmap);
+}
+
+void	map_check_all(t_proc *proc, int i)
+{
+	if (ft_strcmp(proc->map[i], "NO") || ft_strcmpc(proc->map[i], 'N') \
+		|| ft_strcmp(proc->map[i], "SO") || ft_strcmpc(proc->map[i], 'S') \
+		|| ft_strcmp(proc->map[i], "WE") || ft_strcmpc(proc->map[i], 'W') \
+		|| ft_strcmp(proc->map[i], "EA") || ft_strcmpc(proc->map[i], 'E'))
+		check_trans_img(proc->map[i], proc);
+	else if (ft_strcmpc(proc->map[i], 'F'))
+		check_trans_frgb(proc->map[i], proc);
+	else if (ft_strcmpc(proc->map[i], 'C'))
+		check_trans_crgb(proc->map[i], proc);
 }

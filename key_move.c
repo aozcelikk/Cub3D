@@ -62,6 +62,8 @@ void	key_move(t_proc *proc, t_cam *cam)
 	map = proc->g_map.mapi;
 	if (proc->kbd.w)
 	{
+		if (proc->g_plyr.movespd == 0.03)
+			proc->g_plyr.movespd = 0.04;
 		if (!map[(int)(cam->pos_y + cam->dir_y * proc->g_plyr.movespd)] \
 		[(int)cam->pos_x])
 			cam->pos_y += cam->dir_y * proc->g_plyr.movespd;

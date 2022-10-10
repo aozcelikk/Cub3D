@@ -32,6 +32,8 @@ void	check_img_two(char *av, t_proc *proc)
 {
 	int		fd;
 
+	while (*av == ' ' || *av == '\t')
+		av++;
 	fd = open(av + 3, O_RDONLY);
 	if (fd != -1)
 	{
@@ -57,6 +59,8 @@ void	check_img_one(char *av, t_proc *proc)
 {
 	int		fd;
 
+	while (*av == ' ' || *av == '\t')
+		av++;
 	fd = open(av + 2, O_RDONLY);
 	if (fd != -1)
 	{

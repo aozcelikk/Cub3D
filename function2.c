@@ -14,9 +14,14 @@
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (s1[0] == s2[0])
+	int	i;
+
+	i = 0;
+	while (s1[i] == ' ' || s1[i] == '\t')
+		i++;
+	if (s1[i] == s2[0])
 	{
-		if (s1[1] == s2[1] && s1[1] != ' ')
+		if (s1[i + 1] == s2[1] && s1[i + 1] != ' ')
 			return (1);
 		else
 			return (0);
@@ -68,10 +73,13 @@ int	ft_atoi(char *str)
 
 int	ft_strcmpc(const char *s1, const char s2)
 {
-	if (s1[0] == s2)
-	{
+	int	i;
+
+	i = 0;
+	while (s1[i] == ' ' || s1[i] == '\t')
+		i++;
+	if (s1[i] == s2)
 		return (1);
-	}
 	return (0);
 }
 

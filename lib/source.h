@@ -14,8 +14,8 @@
 # define SOURCE_H
 
 //sort code
-# define WIDTH 1600
-# define HEIGHT 900
+# define WIDTH 1920
+# define HEIGHT 1080
 # define IMG_WIDTH 256
 # define IMG_HEIGHT 256
 
@@ -58,6 +58,9 @@ int		map_len(char *av);
 
 //mapread2.c
 void	map_trans_rpg_img_gmap(t_proc *proc);
+void	check_trans_frgb(char *Frgb, t_proc *proc);
+void	check_trans_crgb(char *Crgb, t_proc *proc);
+void	check_trans_img(char *map, t_proc *proc);
 
 //mapread3.c
 void	gmap_control(t_proc *proc);	
@@ -70,6 +73,7 @@ void	g_mapexportintmap(t_proc *proc);
 
 //mapread5.c
 char	poles_casting(char cmap, int i, int j, t_proc *proc);
+void	map_check_all(t_proc *proc, int i);
 
 //game_build.c
 void	f_rgb_up_color(t_proc *proc);
@@ -100,7 +104,8 @@ void	raycasting_wall_dist(t_proc *proc);
 void	raycasting_wall_orien(t_proc *proc);
 
 //playerloc.c
-void	player_loc(t_proc *proc, int x, int y, char c);
+int		player_loc(t_proc *proc, int x, int y, char c);
+int		player_loc2(t_proc *proc, int x, int y, char c);
 
 // kontorl edilecek
 int		key_press(t_proc *proc);

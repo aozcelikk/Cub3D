@@ -33,7 +33,7 @@ static int	check_map_in(char *map, int ac)
 	return (0);
 }
 
-static void	check_trans_frgb(char *Frgb, t_proc *proc)
+void	check_trans_frgb(char *Frgb, t_proc *proc)
 {
 	char	**rgbno;
 	int		i;
@@ -61,7 +61,7 @@ static void	check_trans_frgb(char *Frgb, t_proc *proc)
 	}
 }
 
-static void	check_trans_crgb(char *Crgb, t_proc *proc)
+void	check_trans_crgb(char *Crgb, t_proc *proc)
 {
 	char	**rgbno;
 	int		i;
@@ -89,7 +89,7 @@ static void	check_trans_crgb(char *Crgb, t_proc *proc)
 	}
 }
 
-static void	check_trans_img(char *map, t_proc *proc)
+void	check_trans_img(char *map, t_proc *proc)
 {
 	if (ft_strcmp(map, "NO") || ft_strcmp(map, "SO") \
 		|| ft_strcmp(map, "WE") || ft_strcmp(map, "EA"))
@@ -113,21 +113,19 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 	ac = 0;
 	while (i < 6)
 	{
-		if (i < 4)
-			check_trans_img(proc->map[i], proc);
+		if (i < 6)
+			map_check_all(proc, i);
 		if (proc->map[i])
 		{
 			if (check_map_in(proc->map[i], ac) == 1)
 				i++;
 			else
 			{
-				printf("Error\nWrong map stil");
+				printf("Error\nWrong map stil\n");
 				exit (1);
 			}
 		}
 	}
 	proc->g_map.map = proc->map + 6;
 	gmap_control(proc);
-	check_trans_frgb(proc->map[4], proc);
-	check_trans_crgb(proc->map[5], proc);
 }
