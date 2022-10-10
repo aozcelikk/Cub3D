@@ -39,6 +39,8 @@ void	check_trans_frgb(char *Frgb, t_proc *proc)
 	int		i;
 
 	i = 0;
+	while (*Frgb == ' ' || *Frgb == '\t')
+		Frgb++;
 	rgbno = ft_split(Frgb + 1, ',', proc);
 	while (rgbno[i])
 		i++;
@@ -47,9 +49,7 @@ void	check_trans_frgb(char *Frgb, t_proc *proc)
 		printf("Error\nFrgb arguments is fail");
 		exit (1);
 	}
-	proc->f_rgb.rgb_r = ft_atoi(rgbno[0]);
-	proc->f_rgb.rgb_g = ft_atoi(rgbno[1]);
-	proc->f_rgb.rgb_b = ft_atoi(rgbno[2]);
+	check_trans_frgb2(rgbno, proc);
 	if ((proc->f_rgb.rgb_r >= 0 && proc->f_rgb.rgb_r <= 255) \
 		&& (proc->f_rgb.rgb_g >= 0 && proc->f_rgb.rgb_g <= 255) \
 		&& (proc->f_rgb.rgb_b >= 0 && proc->f_rgb.rgb_b <= 255))
@@ -67,6 +67,8 @@ void	check_trans_crgb(char *Crgb, t_proc *proc)
 	int		i;
 
 	i = 0;
+	while (*Crgb == ' ' || *Crgb == '\t')
+		Crgb++;
 	rgbno = ft_split(Crgb + 1, ',', proc);
 	while (rgbno[i])
 		i++;
@@ -75,9 +77,7 @@ void	check_trans_crgb(char *Crgb, t_proc *proc)
 		printf("Error\nCrgb arguments is fail");
 		exit (1);
 	}
-	proc->c_rgb.rgb_r = ft_atoi(rgbno[0]);
-	proc->c_rgb.rgb_g = ft_atoi(rgbno[1]);
-	proc->c_rgb.rgb_b = ft_atoi(rgbno[2]);
+	check_trans_crgb2(rgbno, proc);
 	if ((proc->c_rgb.rgb_r >= 0 && proc->c_rgb.rgb_r <= 255) \
 		&& (proc->c_rgb.rgb_g >= 0 && proc->c_rgb.rgb_g <= 255) \
 		&& (proc->c_rgb.rgb_b >= 0 && proc->c_rgb.rgb_b <= 255))
@@ -94,8 +94,8 @@ void	check_trans_img(char *map, t_proc *proc)
 	if (ft_strcmp(map, "NO") || ft_strcmp(map, "SO") \
 		|| ft_strcmp(map, "WE") || ft_strcmp(map, "EA"))
 		check_img_two(map, proc);
-	else if ((map[1] == ' ' ) && (map[0] == 'N' || map[0] == 'S' \
-		|| map[0] == 'W' || map[0] == 'E'))
+	else if (ft_strcmpc(map, 'N') || ft_strcmpc(map, 'S') \
+		|| ft_strcmpc(map, 'W') || ft_strcmpc(map, 'E'))
 		check_img_one(map, proc);
 	else
 	{

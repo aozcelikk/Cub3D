@@ -73,12 +73,9 @@ int	ft_atoi(char *str)
 
 int	ft_strcmpc(const char *s1, const char s2)
 {
-	int	i;
-
-	i = 0;
-	while (s1[i] == ' ' || s1[i] == '\t')
-		i++;
-	if (s1[i] == s2)
+	while (*s1 == ' ' || *s1 == '\t')
+		s1++;
+	if (*s1 == s2)
 		return (1);
 	return (0);
 }

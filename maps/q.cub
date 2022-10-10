@@ -1,9 +1,9 @@
-F 120,111,100 
-  N ./xpm/N.xpm
-SO ./xpm/S.xpm
-C 225,225,225 
-WE ./xpm/W.xpm
-EA ./xpm/E.xpm
+        F 225,225,225 
+    NO ./xpm/N.xpm
+  SO ./xpm/S.xpm
+   C 120,111,100
+  WE ./xpm/W.xpm
+    EA ./xpm/E.xpm
 
 
 
