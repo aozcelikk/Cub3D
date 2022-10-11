@@ -113,6 +113,7 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 
 	i = 0;
 	ac = 0;
+	proc->map = skip_space_enter(proc);
 	while (i < 6)
 	{
 		if (i < 6)

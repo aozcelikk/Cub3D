@@ -53,10 +53,3 @@ void	check_trans_frgb2(char	**rgbno, t_proc *proc)
 	proc->f_rgb.rgb_g = ft_atoi(rgbno[1]);
 	proc->f_rgb.rgb_b = ft_atoi(rgbno[2]);
 }
-
-void	map_enter_check(char *map, char **pmap)
-{
-	(void)map;
-	while (*pmap)
-		printf("%s\n", *pmap++);
-}

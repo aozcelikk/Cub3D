@@ -20,14 +20,12 @@
 # define IMG_HEIGHT 256
 
 //mapcheck.c
-
 int		mapcheck(char *map);
 void	check_img_one(char *av, t_proc *proc);
 void	check_img_two(char *av, t_proc *proc);
 void	map_character_check(t_gmap *g_map);
 
 //function.c
-
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memset(void *s, int c, size_t n);
 char	**ft_split(char const *s, char c, t_proc *proc);
@@ -50,7 +48,6 @@ int		set_zero(t_proc *proc);
 void	set_zero2(t_proc *proc);
 
 //mapread.c
-
 void	map_read(t_proc *proc, char *av);
 void	*get_map_free(void *f);
 char	*get_map(int fd, char *av);
@@ -76,7 +73,10 @@ char	poles_casting(char cmap, int i, int j, t_proc *proc);
 void	map_check_all(t_proc *proc, int i);
 void	check_trans_crgb2(char	**rgbno, t_proc *proc);
 void	check_trans_frgb2(char	**rgbno, t_proc *proc);
-void	map_enter_check(char *map, char **pmap);
+
+//mapread6.c
+char	**skip_space_enter(t_proc *proc);
+void	map_enter_check(char *map, t_proc *proc);
 
 //game_build.c
 void	f_rgb_up_color(t_proc *proc);
@@ -109,8 +109,5 @@ void	raycasting_wall_orien(t_proc *proc);
 //playerloc.c
 int		player_loc(t_proc *proc, int x, int y, char c);
 int		player_loc2(t_proc *proc, int x, int y, char c);
-
-// kontorl edilecek
-int		key_press(t_proc *proc);
 
 #endif

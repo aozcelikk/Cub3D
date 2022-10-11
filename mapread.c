@@ -25,7 +25,7 @@ void	map_read(t_proc *proc, char *av)
 	}
 	map = get_map(fd, av);
 	proc->map = ft_split(map, '\n', proc);
-	map_enter_check(map, proc->map);
+	//map_enter_check(map, proc);
 	free(map);
 }
 

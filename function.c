@@ -84,7 +84,7 @@ char	**ft_split(char const *s, char c, t_proc *proc)
 	{
 		while (*s == c && *s != '\0')
 			s++;
-		res[index] = (char *)ft_calloc(word_count(s, c) + 1, sizeof(char));
+		res[index] = (char *)ft_calloc(word_count(s, c) + 2, sizeof(char));
 		two_index = 0;
 		while (*s != c && *s != '\0')
 			res[index][two_index++] = *s++;
