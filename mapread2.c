@@ -59,6 +59,7 @@ void	check_trans_frgb(char *Frgb, t_proc *proc)
 		printf("Error\nFrgb not true");
 		exit(1);
 	}
+	free(rgbno);
 }
 
 void	check_trans_crgb(char *Crgb, t_proc *proc)
@@ -87,6 +88,7 @@ void	check_trans_crgb(char *Crgb, t_proc *proc)
 		printf("Error\nCrgb not true");
 		exit(1);
 	}
+	free(rgbno);
 }
 
 void	check_trans_img(char *map, t_proc *proc)
