@@ -76,6 +76,7 @@ char	poles_casting(char cmap, int i, int j, t_proc *proc);
 void	map_check_all(t_proc *proc, int i);
 void	check_trans_crgb2(char	**rgbno, t_proc *proc);
 void	check_trans_frgb2(char	**rgbno, t_proc *proc);
+void	map_enter_check(char *map, char **pmap);
 
 //game_build.c
 void	f_rgb_up_color(t_proc *proc);

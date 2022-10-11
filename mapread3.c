@@ -73,7 +73,7 @@ void	gmap_wall_oc_check(t_proc *proc)
 	map = proc->g_map.map;
 	if (map_wall_check(map, '0') || map_wall_check(map, 'N') || \
 		map_wall_check(map, 'S') || map_wall_check(map, 'W') || \
-		map_wall_check(map, 'E') || map_wall_check(map, '\n'))
+		map_wall_check(map, 'E'))
 	{
 		printf("Error\nMap is not close\n");
 		exit (1);

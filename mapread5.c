@@ -53,3 +53,52 @@ void	check_trans_frgb2(char	**rgbno, t_proc *proc)
 	proc->f_rgb.rgb_g = ft_atoi(rgbno[1]);
 	proc->f_rgb.rgb_b = ft_atoi(rgbno[2]);
 }
+
+void	map_enter_check(char *map, char **pmap)
+{
+	(void)map;
+	(void)pmap;/*
+	char	**cmap;
+	int		i;
+	int	j;
+
+	i = 1;
+	cmap = pmap + 6;
+	while (map[i] && map[i + 1])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == c && ((!j || map[i][j - 1] == ' ' || \
+			!map[i][j + 1] || map[i][j] == ' ') || \
+			(j + 1 > ft_strlen(map[i - 1]) || map[i - 1][j] == ' ') || \
+			(j + 1 > ft_strlen(map[i + 1]) || map[i + 1][j] == ' ')))
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	if (ft_strchr(map[i], c) || ft_strchr(map[0], c))
+		return (-1);*/
+	/*while (cmap)
+	{
+		while (*map)
+		{
+			if (*map == '1' && (*map + 1 == '0' || *map + 1 == '1'))
+			{
+				if (*map == *cmap[i])
+				{
+					printf("map %c\tcmap %c\n", *map, *cmap[i]);
+					map++;
+					i++;
+				}
+				else
+				{
+					printf("Error\nMap is not close\n");
+					exit(1);
+				}
+			}
+		}
+		cmap++;
+	}*/
+}

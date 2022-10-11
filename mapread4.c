@@ -18,7 +18,11 @@ int	frgbtrans(char **rgbno)
 	int		rgbnu;
 
 	frgb = ft_strjoin(rgbno[0], rgbno[1], rgbno[2]);
+	free(rgbno[0]);
+	free(rgbno[1]);
+	free(rgbno[2]);
 	rgbnu = ft_atoi(frgb);
+	free(frgb);
 	return (rgbnu);
 }
 
@@ -28,7 +32,11 @@ int	crgbtrans(char **rgbno)
 	int		rgbnu;
 
 	crgb = ft_strjoin(rgbno[0], rgbno[1], rgbno[2]);
+	free(rgbno[0]);
+	free(rgbno[1]);
+	free(rgbno[2]);
 	rgbnu = ft_atoi(crgb);
+	free(crgb);
 	return (rgbnu);
 }
 
