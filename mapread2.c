@@ -12,23 +12,25 @@
 
 #include "./lib/cub3D.h"
 
-static int	check_map_in(char *map, int ac)
+static int	check_map_in(char *map, int *ac)
 {
 	if (ft_strcmp(map, "NO") || ft_strcmpc(map, 'N'))
-		ac += 1;
+		*ac += 1;
 	else if (ft_strcmp(map, "SO") || ft_strcmpc(map, 'S'))
-		ac += 1;
+		*ac += 1;
 	else if (ft_strcmp(map, "WE") || ft_strcmpc(map, 'W'))
-		ac += 1;
+		*ac += 1;
 	else if (ft_strcmp(map, "EA") || ft_strcmpc(map, 'E'))
-		ac += 1;
+		*ac += 1;
 	else if (ft_strcmpc(map, 'F'))
-		ac += 1;
+		*ac += 1;
 	else if (ft_strcmpc(map, 'C'))
-		ac += 1;
+		*ac += 1;
+	else if (check_spaces(map))
+		*ac += 0;
 	else
 		return (-1);
-	if (ac <= 6)
+	if (*ac <= 6)
 		return (1);
 	return (0);
 }
@@ -114,21 +116,23 @@ void	map_trans_rpg_img_gmap(t_proc *proc)
 	i = 0;
 	ac = 0;
 	proc->map = skip_space_enter(proc);
-	while (i < 6)
+	while (proc->map[i])
 	{
-		if (i < 6)
+		if (proc->map[i])
 			map_check_all(proc, i);
 		if (proc->map[i])
 		{
-			if (check_map_in(proc->map[i], ac) == 1)
+			if (check_map_in(proc->map[i], &ac) == 1)
 				i++;
 			else
 			{
 				printf("Error\nWrong map stil\n");
 				exit (1);
 			}
+			if (ac == 6)
+				break ;
 		}
 	}
-	proc->g_map.map = proc->map + 6;
+	proc->g_map.map = proc->map + i;
 	gmap_control(proc);
 }

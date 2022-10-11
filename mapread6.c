@@ -35,6 +35,21 @@ char	**skip_space_enter(t_proc *proc)
 	return (proc->map);
 }
 
+int	check_spaces(char *map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		if (map[i] == ' ' || map[i] == '\t' || map[i] == '\n')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 void	map_enter_check(char *map, t_proc *proc)
 {
 	char	**maps;
