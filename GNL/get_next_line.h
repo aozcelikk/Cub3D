@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aozcelik <42istanbul.com.tr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/17 13:16:02 by aozcelik          #+#    #+#             */
-/*   Updated: 2022/09/17 13:16:04 by aozcelik         ###   ########.tr       */
+/*   Created: 2022/01/24 11:24:37 by aozcelik          #+#    #+#             */
+/*   Updated: 2022/01/24 11:27:47 by aozcelik         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <stdio.h>
-# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <math.h>
+# include <stddef.h>
+# include <fcntl.h>
 
-//Me Header
-# include "func.h"
-# include "../mlx/mlx.h"
-# include "source.h"
-# include "../GNL/get_next_line.h"
-
+char	*get_next_linee(int fd);
+size_t	ft_strlenn(const char *s);
+void	*ft_memmovee(void *dest, const void *src, size_t n);
+char	*ft_strjoinn(char const *s1, char const *s2);
+int		yeni_satr(char const *s1);
 #endif

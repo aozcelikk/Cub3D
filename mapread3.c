@@ -41,7 +41,7 @@ void	gmap_control(t_proc *proc)
 	gmap_wall_oc_check(proc);
 }
 
-static int	map_wall_check(char **map, char c)
+int	map_wall_check(char **map, char c)
 {
 	int	i;
 	int	j;

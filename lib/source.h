@@ -62,6 +62,7 @@ void	check_trans_img(char *map, t_proc *proc);
 //mapread3.c
 void	gmap_control(t_proc *proc);	
 void	gmap_wall_oc_check(t_proc *proc);
+int		map_wall_check(char **map, char c);
 
 //mapread4.c
 int		frgbtrans(char **rgbno);
@@ -76,8 +77,10 @@ void	check_trans_frgb2(char	**rgbno, t_proc *proc);
 
 //mapread6.c
 char	**skip_space_enter(t_proc *proc);
-void	map_enter_check(char *map, t_proc *proc);
 int		check_spaces(char *map);
+
+//mapread7.c
+void	map_enter_check(char *map);
 
 //game_build.c
 void	f_rgb_up_color(t_proc *proc);
