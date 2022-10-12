@@ -37,12 +37,31 @@ static int	map_space(char *map)
 	return (i);
 }
 
-static void	wall_enter(char *map)
+static int	map_rspace(char *map)
 {
 	int	i;
 
 	i = 0;
 	while (map[i])
+		i++;
+	i--;
+	while (map[i])
+	{
+		if (map[i] != '1')
+			i--;
+		else
+			break ;
+	}
+	i++;
+	return (i);
+}
+
+static void	wall_enter(char *map, int j)
+{
+	int	i;
+
+	i = 0;
+	while (map[i] && i < j)
 	{
 		if (map[i] == '\n' && map[i + 1] == '\n')
 		{
@@ -56,7 +75,11 @@ static void	wall_enter(char *map)
 void	map_enter_check(char *map)
 {
 	int	i;
+	int	j;
+	int	idx;
 
 	i = map_space(map);
-	wall_enter(map + i);
+	j = map_rspace(map);
+	idx = j - i;
+	wall_enter(map + i, idx);
 }

@@ -10,7 +10,6 @@ SOURCE			=	main.c mapcheck.c \
 					game_build.c wall_image_making.c \
 					set_zero.c set_zero2.c\
 					playerloc.c raycasting_init.c \
-					./GNL/get_next_line.c ./GNL/get_next_line_utils.c \
 					
 					
 
