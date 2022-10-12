@@ -49,4 +49,3 @@ int	check_spaces(char *map)
 	}
 	return (1);
 }
-

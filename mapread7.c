@@ -37,22 +37,26 @@ static int	map_space(char *map)
 	return (i);
 }
 
-// static void	wall_check(char **map)
-// {
-// 	if (map_wall_check(map, '0') || map_wall_check(map, 'N') || \
-// 		map_wall_check(map, 'S') || map_wall_check(map, 'W') || \
-// 		map_wall_check(map, 'E'))
-// 	{
-// 		printf("Error\nMap is not close\n");
-// 		exit (1);
-// 	}
-// }
-
-void map_enter_check(char *map)
+static void	wall_enter(char *map)
 {
 	int	i;
 
-	i =	map_space(map);
-	printf("%d\n", i);
-	printf("%s\n", map + i);
+	i = 0;
+	while (map[i])
+	{
+		if (map[i] == '\n' && map[i + 1] == '\n')
+		{
+			printf("Error\nMap is not close\n");
+			exit(1);
+		}
+		i++;
+	}
+}
+
+void	map_enter_check(char *map)
+{
+	int	i;
+
+	i = map_space(map);
+	wall_enter(map + i);
 }

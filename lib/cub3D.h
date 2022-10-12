@@ -23,6 +23,5 @@
 # include "func.h"
 # include "../mlx/mlx.h"
 # include "source.h"
-# include "../GNL/get_next_line.h"
 
 #endif
